@@ -1,0 +1,3603 @@
+[
+  {
+    "id": "AFG",
+    "ccn3": "004",
+    "name": "Afghanistan",
+    "officialName": "Islamic Republic of Afghanistan",
+    "altNames": [
+      "Afġānistān"
+    ],
+    "capitals": [
+      "Kabul"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      33,
+      65
+    ]
+  },
+  {
+    "id": "ALB",
+    "ccn3": "008",
+    "name": "Albania",
+    "officialName": "Republic of Albania",
+    "altNames": [
+      "Shqipëri",
+      "Shqipëria",
+      "Shqipnia"
+    ],
+    "capitals": [
+      "Tirana"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      41,
+      20
+    ]
+  },
+  {
+    "id": "DZA",
+    "ccn3": "012",
+    "name": "Algeria",
+    "officialName": "People's Democratic Republic of Algeria",
+    "altNames": [
+      "Dzayer",
+      "Algérie"
+    ],
+    "capitals": [
+      "Algiers"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      28,
+      3
+    ]
+  },
+  {
+    "id": "AND",
+    "ccn3": "020",
+    "name": "Andorra",
+    "officialName": "Principality of Andorra",
+    "altNames": [
+      "Principality of Andorra",
+      "Principat d'Andorra"
+    ],
+    "capitals": [
+      "Andorra la Vella"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      42.5,
+      1.5
+    ]
+  },
+  {
+    "id": "AGO",
+    "ccn3": "024",
+    "name": "Angola",
+    "officialName": "Republic of Angola",
+    "altNames": [
+      "República de Angola",
+      "ʁɛpublika de an'ɡɔla"
+    ],
+    "capitals": [
+      "Luanda"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -12.5,
+      18.5
+    ]
+  },
+  {
+    "id": "ATG",
+    "ccn3": "028",
+    "name": "Antigua and Barbuda",
+    "officialName": "Antigua and Barbuda",
+    "altNames": [],
+    "capitals": [
+      "Saint John's"
+    ],
+    "continent": "North America",
+    "latlng": [
+      17.05,
+      -61.8
+    ]
+  },
+  {
+    "id": "ARG",
+    "ccn3": "032",
+    "name": "Argentina",
+    "officialName": "Argentine Republic",
+    "altNames": [
+      "Argentine Republic",
+      "República Argentina"
+    ],
+    "capitals": [
+      "Buenos Aires"
+    ],
+    "continent": "South America",
+    "latlng": [
+      -34,
+      -64
+    ]
+  },
+  {
+    "id": "ARM",
+    "ccn3": "051",
+    "name": "Armenia",
+    "officialName": "Republic of Armenia",
+    "altNames": [
+      "Hayastan",
+      "Republic of Armenia",
+      "Հայաստանի Հանրապետություն"
+    ],
+    "capitals": [
+      "Yerevan"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      40,
+      45
+    ]
+  },
+  {
+    "id": "AUS",
+    "ccn3": "036",
+    "name": "Australia",
+    "officialName": "Commonwealth of Australia",
+    "altNames": [],
+    "capitals": [
+      "Canberra"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -27,
+      133
+    ]
+  },
+  {
+    "id": "AUT",
+    "ccn3": "040",
+    "name": "Austria",
+    "officialName": "Republic of Austria",
+    "altNames": [
+      "Osterreich",
+      "Oesterreich"
+    ],
+    "capitals": [
+      "Vienna"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      47.33333333,
+      13.33333333
+    ]
+  },
+  {
+    "id": "AZE",
+    "ccn3": "031",
+    "name": "Azerbaijan",
+    "officialName": "Republic of Azerbaijan",
+    "altNames": [
+      "Republic of Azerbaijan",
+      "Azərbaycan Respublikası"
+    ],
+    "capitals": [
+      "Baku"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      40.5,
+      47.5
+    ]
+  },
+  {
+    "id": "BHS",
+    "ccn3": "044",
+    "name": "Bahamas",
+    "officialName": "Commonwealth of the Bahamas",
+    "altNames": [
+      "Commonwealth of the Bahamas"
+    ],
+    "capitals": [
+      "Nassau"
+    ],
+    "continent": "North America",
+    "latlng": [
+      24.25,
+      -76
+    ]
+  },
+  {
+    "id": "BHR",
+    "ccn3": "048",
+    "name": "Bahrain",
+    "officialName": "Kingdom of Bahrain",
+    "altNames": [
+      "Kingdom of Bahrain",
+      "Mamlakat al-Baḥrayn"
+    ],
+    "capitals": [
+      "Manama"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      26,
+      50.55
+    ]
+  },
+  {
+    "id": "BGD",
+    "ccn3": "050",
+    "name": "Bangladesh",
+    "officialName": "People's Republic of Bangladesh",
+    "altNames": [
+      "People's Republic of Bangladesh",
+      "Gônôprôjatôntri Bangladesh"
+    ],
+    "capitals": [
+      "Dhaka"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      24,
+      90
+    ]
+  },
+  {
+    "id": "BRB",
+    "ccn3": "052",
+    "name": "Barbados",
+    "officialName": "Barbados",
+    "altNames": [],
+    "capitals": [
+      "Bridgetown"
+    ],
+    "continent": "North America",
+    "latlng": [
+      13.16666666,
+      -59.53333333
+    ]
+  },
+  {
+    "id": "BLR",
+    "ccn3": "112",
+    "name": "Belarus",
+    "officialName": "Republic of Belarus",
+    "altNames": [
+      "Bielaruś",
+      "Republic of Belarus",
+      "Белоруссия",
+      "Республика Белоруссия"
+    ],
+    "capitals": [
+      "Minsk"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      53,
+      28
+    ]
+  },
+  {
+    "id": "BEL",
+    "ccn3": "056",
+    "name": "Belgium",
+    "officialName": "Kingdom of Belgium",
+    "altNames": [
+      "België",
+      "Belgie",
+      "Belgien",
+      "Belgique",
+      "Kingdom of Belgium",
+      "Koninkrijk België",
+      "Royaume de Belgique",
+      "Königreich Belgien"
+    ],
+    "capitals": [
+      "Brussels"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      50.83333333,
+      4
+    ]
+  },
+  {
+    "id": "BLZ",
+    "ccn3": "084",
+    "name": "Belize",
+    "officialName": "Belize",
+    "altNames": [],
+    "capitals": [
+      "Belmopan"
+    ],
+    "continent": "North America",
+    "latlng": [
+      17.25,
+      -88.75
+    ]
+  },
+  {
+    "id": "BEN",
+    "ccn3": "204",
+    "name": "Benin",
+    "officialName": "Republic of Benin",
+    "altNames": [
+      "Republic of Benin",
+      "République du Bénin"
+    ],
+    "capitals": [
+      "Porto-Novo"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      9.5,
+      2.25
+    ]
+  },
+  {
+    "id": "BTN",
+    "ccn3": "064",
+    "name": "Bhutan",
+    "officialName": "Kingdom of Bhutan",
+    "altNames": [
+      "Kingdom of Bhutan"
+    ],
+    "capitals": [
+      "Thimphu"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      27.5,
+      90.5
+    ]
+  },
+  {
+    "id": "BOL",
+    "ccn3": "068",
+    "name": "Bolivia",
+    "officialName": "Plurinational State of Bolivia",
+    "altNames": [
+      "Buliwya",
+      "Wuliwya",
+      "Bolivia, Plurinational State of",
+      "Plurinational State of Bolivia",
+      "Estado Plurinacional de Bolivia",
+      "Buliwya Mamallaqta",
+      "Wuliwya Suyu",
+      "Tetã Volívia"
+    ],
+    "capitals": [
+      "Sucre"
+    ],
+    "continent": "South America",
+    "latlng": [
+      -17,
+      -65
+    ]
+  },
+  {
+    "id": "BIH",
+    "ccn3": "070",
+    "name": "Bosnia and Herzegovina",
+    "officialName": "Bosnia and Herzegovina",
+    "altNames": [
+      "Bosnia-Herzegovina",
+      "Босна и Херцеговина"
+    ],
+    "capitals": [
+      "Sarajevo"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      44,
+      18
+    ]
+  },
+  {
+    "id": "BWA",
+    "ccn3": "072",
+    "name": "Botswana",
+    "officialName": "Republic of Botswana",
+    "altNames": [
+      "Republic of Botswana",
+      "Lefatshe la Botswana"
+    ],
+    "capitals": [
+      "Gaborone"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -22,
+      24
+    ]
+  },
+  {
+    "id": "BRA",
+    "ccn3": "076",
+    "name": "Brazil",
+    "officialName": "Federative Republic of Brazil",
+    "altNames": [
+      "Brasil",
+      "Federative Republic of Brazil",
+      "República Federativa do Brasil"
+    ],
+    "capitals": [
+      "Brasília"
+    ],
+    "continent": "South America",
+    "latlng": [
+      -10,
+      -55
+    ]
+  },
+  {
+    "id": "BRN",
+    "ccn3": "096",
+    "name": "Brunei",
+    "officialName": "Nation of Brunei, Abode of Peace",
+    "altNames": [
+      "Brunei Darussalam",
+      "Nation of Brunei",
+      "the Abode of Peace"
+    ],
+    "capitals": [
+      "Bandar Seri Begawan"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      4.5,
+      114.66666666
+    ]
+  },
+  {
+    "id": "BGR",
+    "ccn3": "100",
+    "name": "Bulgaria",
+    "officialName": "Republic of Bulgaria",
+    "altNames": [
+      "Republic of Bulgaria",
+      "Република България"
+    ],
+    "capitals": [
+      "Sofia"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      43,
+      25
+    ]
+  },
+  {
+    "id": "BFA",
+    "ccn3": "854",
+    "name": "Burkina Faso",
+    "officialName": "Burkina Faso",
+    "altNames": [],
+    "capitals": [
+      "Ouagadougou"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      13,
+      -2
+    ]
+  },
+  {
+    "id": "BDI",
+    "ccn3": "108",
+    "name": "Burundi",
+    "officialName": "Republic of Burundi",
+    "altNames": [
+      "Republic of Burundi",
+      "Republika y'Uburundi",
+      "République du Burundi"
+    ],
+    "capitals": [
+      "Gitega"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -3.5,
+      30
+    ]
+  },
+  {
+    "id": "KHM",
+    "ccn3": "116",
+    "name": "Cambodia",
+    "officialName": "Kingdom of Cambodia",
+    "altNames": [
+      "Kingdom of Cambodia"
+    ],
+    "capitals": [
+      "Phnom Penh"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      13,
+      105
+    ]
+  },
+  {
+    "id": "CMR",
+    "ccn3": "120",
+    "name": "Cameroon",
+    "officialName": "Republic of Cameroon",
+    "altNames": [
+      "Republic of Cameroon",
+      "République du Cameroun"
+    ],
+    "capitals": [
+      "Yaoundé"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      6,
+      12
+    ]
+  },
+  {
+    "id": "CAN",
+    "ccn3": "124",
+    "name": "Canada",
+    "officialName": "Canada",
+    "altNames": [],
+    "capitals": [
+      "Ottawa"
+    ],
+    "continent": "North America",
+    "latlng": [
+      60,
+      -95
+    ]
+  },
+  {
+    "id": "CPV",
+    "ccn3": "132",
+    "name": "Cape Verde",
+    "officialName": "Republic of Cabo Verde",
+    "altNames": [
+      "Republic of Cabo Verde",
+      "República de Cabo Verde"
+    ],
+    "capitals": [
+      "Praia"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      16,
+      -24
+    ]
+  },
+  {
+    "id": "CAF",
+    "ccn3": "140",
+    "name": "Central African Republic",
+    "officialName": "Central African Republic",
+    "altNames": [
+      "Central African Republic",
+      "République centrafricaine"
+    ],
+    "capitals": [
+      "Bangui"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      7,
+      21
+    ]
+  },
+  {
+    "id": "TCD",
+    "ccn3": "148",
+    "name": "Chad",
+    "officialName": "Republic of Chad",
+    "altNames": [
+      "Tchad",
+      "Republic of Chad",
+      "République du Tchad"
+    ],
+    "capitals": [
+      "N'Djamena"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      15,
+      19
+    ]
+  },
+  {
+    "id": "CHL",
+    "ccn3": "152",
+    "name": "Chile",
+    "officialName": "Republic of Chile",
+    "altNames": [
+      "Republic of Chile",
+      "República de Chile"
+    ],
+    "capitals": [
+      "Santiago"
+    ],
+    "continent": "South America",
+    "latlng": [
+      -30,
+      -71
+    ]
+  },
+  {
+    "id": "CHN",
+    "ccn3": "156",
+    "name": "China",
+    "officialName": "People's Republic of China",
+    "altNames": [
+      "Zhōngguó",
+      "Zhongguo",
+      "Zhonghua",
+      "People's Republic of China",
+      "中华人民共和国",
+      "Zhōnghuá Rénmín Gònghéguó"
+    ],
+    "capitals": [
+      "Beijing"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      35,
+      105
+    ]
+  },
+  {
+    "id": "COL",
+    "ccn3": "170",
+    "name": "Colombia",
+    "officialName": "Republic of Colombia",
+    "altNames": [
+      "Republic of Colombia",
+      "República de Colombia"
+    ],
+    "capitals": [
+      "Bogotá"
+    ],
+    "continent": "South America",
+    "latlng": [
+      4,
+      -72
+    ]
+  },
+  {
+    "id": "COM",
+    "ccn3": "174",
+    "name": "Comoros",
+    "officialName": "Union of the Comoros",
+    "altNames": [
+      "Union of the Comoros",
+      "Union des Comores",
+      "Udzima wa Komori",
+      "al-Ittiḥād al-Qumurī"
+    ],
+    "capitals": [
+      "Moroni"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -12.16666666,
+      44.25
+    ]
+  },
+  {
+    "id": "CRI",
+    "ccn3": "188",
+    "name": "Costa Rica",
+    "officialName": "Republic of Costa Rica",
+    "altNames": [
+      "Republic of Costa Rica",
+      "República de Costa Rica"
+    ],
+    "capitals": [
+      "San José"
+    ],
+    "continent": "North America",
+    "latlng": [
+      10,
+      -84
+    ]
+  },
+  {
+    "id": "HRV",
+    "ccn3": "191",
+    "name": "Croatia",
+    "officialName": "Republic of Croatia",
+    "altNames": [
+      "Hrvatska",
+      "Republic of Croatia",
+      "Republika Hrvatska"
+    ],
+    "capitals": [
+      "Zagreb"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      45.16666666,
+      15.5
+    ]
+  },
+  {
+    "id": "CUB",
+    "ccn3": "192",
+    "name": "Cuba",
+    "officialName": "Republic of Cuba",
+    "altNames": [
+      "Republic of Cuba",
+      "República de Cuba"
+    ],
+    "capitals": [
+      "Havana"
+    ],
+    "continent": "North America",
+    "latlng": [
+      21.5,
+      -80
+    ]
+  },
+  {
+    "id": "CYP",
+    "ccn3": "196",
+    "name": "Cyprus",
+    "officialName": "Republic of Cyprus",
+    "altNames": [
+      "Kýpros",
+      "Kıbrıs",
+      "Republic of Cyprus",
+      "Κυπριακή Δημοκρατία",
+      "Kıbrıs Cumhuriyeti"
+    ],
+    "capitals": [
+      "Nicosia"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      35,
+      33
+    ]
+  },
+  {
+    "id": "CZE",
+    "ccn3": "203",
+    "name": "Czechia",
+    "officialName": "Czech Republic",
+    "altNames": [
+      "Česká republika",
+      "Česko"
+    ],
+    "capitals": [
+      "Prague"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      49.75,
+      15.5
+    ]
+  },
+  {
+    "id": "DNK",
+    "ccn3": "208",
+    "name": "Denmark",
+    "officialName": "Kingdom of Denmark",
+    "altNames": [
+      "Danmark",
+      "Kingdom of Denmark",
+      "Kongeriget Danmark"
+    ],
+    "capitals": [
+      "Copenhagen"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      56,
+      10
+    ]
+  },
+  {
+    "id": "DJI",
+    "ccn3": "262",
+    "name": "Djibouti",
+    "officialName": "Republic of Djibouti",
+    "altNames": [
+      "Jabuuti",
+      "Gabuuti",
+      "Republic of Djibouti",
+      "République de Djibouti",
+      "Gabuutih Ummuuno",
+      "Jamhuuriyadda Jabuuti"
+    ],
+    "capitals": [
+      "Djibouti"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      11.5,
+      43
+    ]
+  },
+  {
+    "id": "DMA",
+    "ccn3": "212",
+    "name": "Dominica",
+    "officialName": "Commonwealth of Dominica",
+    "altNames": [
+      "Dominique",
+      "Wai‘tu kubuli",
+      "Commonwealth of Dominica"
+    ],
+    "capitals": [
+      "Roseau"
+    ],
+    "continent": "North America",
+    "latlng": [
+      15.41666666,
+      -61.33333333
+    ]
+  },
+  {
+    "id": "DOM",
+    "ccn3": "214",
+    "name": "Dominican Republic",
+    "officialName": "Dominican Republic",
+    "altNames": [],
+    "capitals": [
+      "Santo Domingo"
+    ],
+    "continent": "North America",
+    "latlng": [
+      19,
+      -70.66666666
+    ]
+  },
+  {
+    "id": "COD",
+    "ccn3": "180",
+    "name": "DR Congo",
+    "officialName": "Democratic Republic of the Congo",
+    "altNames": [
+      "DR Congo",
+      "Congo-Kinshasa",
+      "Congo, the Democratic Republic of the",
+      "Democratic Republic of Congo",
+      "DRC"
+    ],
+    "capitals": [
+      "Kinshasa"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      0,
+      25
+    ]
+  },
+  {
+    "id": "ECU",
+    "ccn3": "218",
+    "name": "Ecuador",
+    "officialName": "Republic of Ecuador",
+    "altNames": [
+      "Republic of Ecuador",
+      "República del Ecuador"
+    ],
+    "capitals": [
+      "Quito"
+    ],
+    "continent": "South America",
+    "latlng": [
+      -2,
+      -77.5
+    ]
+  },
+  {
+    "id": "EGY",
+    "ccn3": "818",
+    "name": "Egypt",
+    "officialName": "Arab Republic of Egypt",
+    "altNames": [
+      "Arab Republic of Egypt"
+    ],
+    "capitals": [
+      "Cairo"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      27,
+      30
+    ]
+  },
+  {
+    "id": "SLV",
+    "ccn3": "222",
+    "name": "El Salvador",
+    "officialName": "Republic of El Salvador",
+    "altNames": [
+      "Republic of El Salvador",
+      "República de El Salvador"
+    ],
+    "capitals": [
+      "San Salvador"
+    ],
+    "continent": "North America",
+    "latlng": [
+      13.83333333,
+      -88.91666666
+    ]
+  },
+  {
+    "id": "GNQ",
+    "ccn3": "226",
+    "name": "Equatorial Guinea",
+    "officialName": "Republic of Equatorial Guinea",
+    "altNames": [
+      "Republic of Equatorial Guinea",
+      "República de Guinea Ecuatorial",
+      "République de Guinée équatoriale",
+      "República da Guiné Equatorial"
+    ],
+    "capitals": [
+      "Malabo"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      2,
+      10
+    ]
+  },
+  {
+    "id": "ERI",
+    "ccn3": "232",
+    "name": "Eritrea",
+    "officialName": "State of Eritrea",
+    "altNames": [
+      "State of Eritrea",
+      "ሃገረ ኤርትራ",
+      "Dawlat Iritriyá",
+      "ʾErtrā",
+      "Iritriyā"
+    ],
+    "capitals": [
+      "Asmara"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      15,
+      39
+    ]
+  },
+  {
+    "id": "EST",
+    "ccn3": "233",
+    "name": "Estonia",
+    "officialName": "Republic of Estonia",
+    "altNames": [
+      "Eesti",
+      "Republic of Estonia",
+      "Eesti Vabariik"
+    ],
+    "capitals": [
+      "Tallinn"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      59,
+      26
+    ]
+  },
+  {
+    "id": "SWZ",
+    "ccn3": "748",
+    "name": "Eswatini",
+    "officialName": "Kingdom of Eswatini",
+    "altNames": [
+      "Swaziland",
+      "weSwatini",
+      "Swatini",
+      "Ngwane",
+      "Kingdom of Eswatini",
+      "Umbuso weSwatini"
+    ],
+    "capitals": [
+      "Lobamba"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -26.5,
+      31.5
+    ]
+  },
+  {
+    "id": "ETH",
+    "ccn3": "231",
+    "name": "Ethiopia",
+    "officialName": "Federal Democratic Republic of Ethiopia",
+    "altNames": [
+      "ʾĪtyōṗṗyā",
+      "Federal Democratic Republic of Ethiopia",
+      "የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ"
+    ],
+    "capitals": [
+      "Addis Ababa"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      8,
+      38
+    ]
+  },
+  {
+    "id": "FJI",
+    "ccn3": "242",
+    "name": "Fiji",
+    "officialName": "Republic of Fiji",
+    "altNames": [
+      "Viti",
+      "Republic of Fiji",
+      "Matanitu ko Viti",
+      "Fijī Gaṇarājya"
+    ],
+    "capitals": [
+      "Suva"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -18,
+      175
+    ]
+  },
+  {
+    "id": "FIN",
+    "ccn3": "246",
+    "name": "Finland",
+    "officialName": "Republic of Finland",
+    "altNames": [
+      "Suomi",
+      "Republic of Finland",
+      "Suomen tasavalta",
+      "Republiken Finland"
+    ],
+    "capitals": [
+      "Helsinki"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      64,
+      26
+    ]
+  },
+  {
+    "id": "FRA",
+    "ccn3": "250",
+    "name": "France",
+    "officialName": "French Republic",
+    "altNames": [
+      "French Republic",
+      "République française"
+    ],
+    "capitals": [
+      "Paris"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      46,
+      2
+    ]
+  },
+  {
+    "id": "GAB",
+    "ccn3": "266",
+    "name": "Gabon",
+    "officialName": "Gabonese Republic",
+    "altNames": [
+      "Gabonese Republic",
+      "République Gabonaise"
+    ],
+    "capitals": [
+      "Libreville"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -1,
+      11.75
+    ]
+  },
+  {
+    "id": "GMB",
+    "ccn3": "270",
+    "name": "Gambia",
+    "officialName": "Republic of the Gambia",
+    "altNames": [
+      "Republic of the Gambia"
+    ],
+    "capitals": [
+      "Banjul"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      13.46666666,
+      -16.56666666
+    ]
+  },
+  {
+    "id": "GEO",
+    "ccn3": "268",
+    "name": "Georgia",
+    "officialName": "Georgia",
+    "altNames": [
+      "Sakartvelo"
+    ],
+    "capitals": [
+      "Tbilisi"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      42,
+      43.5
+    ]
+  },
+  {
+    "id": "DEU",
+    "ccn3": "276",
+    "name": "Germany",
+    "officialName": "Federal Republic of Germany",
+    "altNames": [
+      "Federal Republic of Germany",
+      "Bundesrepublik Deutschland"
+    ],
+    "capitals": [
+      "Berlin"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      51,
+      9
+    ]
+  },
+  {
+    "id": "GHA",
+    "ccn3": "288",
+    "name": "Ghana",
+    "officialName": "Republic of Ghana",
+    "altNames": [],
+    "capitals": [
+      "Accra"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      8,
+      -2
+    ]
+  },
+  {
+    "id": "GRC",
+    "ccn3": "300",
+    "name": "Greece",
+    "officialName": "Hellenic Republic",
+    "altNames": [
+      "Elláda",
+      "Hellenic Republic",
+      "Ελληνική Δημοκρατία"
+    ],
+    "capitals": [
+      "Athens"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      39,
+      22
+    ]
+  },
+  {
+    "id": "GRD",
+    "ccn3": "308",
+    "name": "Grenada",
+    "officialName": "Grenada",
+    "altNames": [],
+    "capitals": [
+      "St. George's"
+    ],
+    "continent": "North America",
+    "latlng": [
+      12.11666666,
+      -61.66666666
+    ]
+  },
+  {
+    "id": "GTM",
+    "ccn3": "320",
+    "name": "Guatemala",
+    "officialName": "Republic of Guatemala",
+    "altNames": [],
+    "capitals": [
+      "Guatemala City"
+    ],
+    "continent": "North America",
+    "latlng": [
+      15.5,
+      -90.25
+    ]
+  },
+  {
+    "id": "GIN",
+    "ccn3": "324",
+    "name": "Guinea",
+    "officialName": "Republic of Guinea",
+    "altNames": [
+      "Republic of Guinea",
+      "République de Guinée"
+    ],
+    "capitals": [
+      "Conakry"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      11,
+      -10
+    ]
+  },
+  {
+    "id": "GNB",
+    "ccn3": "624",
+    "name": "Guinea-Bissau",
+    "officialName": "Republic of Guinea-Bissau",
+    "altNames": [
+      "Republic of Guinea-Bissau",
+      "República da Guiné-Bissau"
+    ],
+    "capitals": [
+      "Bissau"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      12,
+      -15
+    ]
+  },
+  {
+    "id": "GUY",
+    "ccn3": "328",
+    "name": "Guyana",
+    "officialName": "Co-operative Republic of Guyana",
+    "altNames": [
+      "Co-operative Republic of Guyana"
+    ],
+    "capitals": [
+      "Georgetown"
+    ],
+    "continent": "South America",
+    "latlng": [
+      5,
+      -59
+    ]
+  },
+  {
+    "id": "HTI",
+    "ccn3": "332",
+    "name": "Haiti",
+    "officialName": "Republic of Haiti",
+    "altNames": [
+      "Republic of Haiti",
+      "République d'Haïti",
+      "Repiblik Ayiti"
+    ],
+    "capitals": [
+      "Port-au-Prince"
+    ],
+    "continent": "North America",
+    "latlng": [
+      19,
+      -72.41666666
+    ]
+  },
+  {
+    "id": "HND",
+    "ccn3": "340",
+    "name": "Honduras",
+    "officialName": "Republic of Honduras",
+    "altNames": [
+      "Republic of Honduras",
+      "República de Honduras"
+    ],
+    "capitals": [
+      "Tegucigalpa"
+    ],
+    "continent": "North America",
+    "latlng": [
+      15,
+      -86.5
+    ]
+  },
+  {
+    "id": "HUN",
+    "ccn3": "348",
+    "name": "Hungary",
+    "officialName": "Hungary",
+    "altNames": [],
+    "capitals": [
+      "Budapest"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      47,
+      20
+    ]
+  },
+  {
+    "id": "ISL",
+    "ccn3": "352",
+    "name": "Iceland",
+    "officialName": "Iceland",
+    "altNames": [
+      "Island",
+      "Republic of Iceland",
+      "Lýðveldið Ísland"
+    ],
+    "capitals": [
+      "Reykjavik"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      65,
+      -18
+    ]
+  },
+  {
+    "id": "IND",
+    "ccn3": "356",
+    "name": "India",
+    "officialName": "Republic of India",
+    "altNames": [
+      "Bhārat",
+      "Republic of India",
+      "Bharat Ganrajya",
+      "இந்தியா"
+    ],
+    "capitals": [
+      "New Delhi"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      20,
+      77
+    ]
+  },
+  {
+    "id": "IDN",
+    "ccn3": "360",
+    "name": "Indonesia",
+    "officialName": "Republic of Indonesia",
+    "altNames": [
+      "Republic of Indonesia",
+      "Republik Indonesia"
+    ],
+    "capitals": [
+      "Jakarta"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      -5,
+      120
+    ]
+  },
+  {
+    "id": "IRN",
+    "ccn3": "364",
+    "name": "Iran",
+    "officialName": "Islamic Republic of Iran",
+    "altNames": [
+      "Islamic Republic of Iran",
+      "Iran, Islamic Republic of",
+      "Jomhuri-ye Eslāmi-ye Irān"
+    ],
+    "capitals": [
+      "Tehran"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      32,
+      53
+    ]
+  },
+  {
+    "id": "IRQ",
+    "ccn3": "368",
+    "name": "Iraq",
+    "officialName": "Republic of Iraq",
+    "altNames": [
+      "Republic of Iraq",
+      "Jumhūriyyat al-‘Irāq"
+    ],
+    "capitals": [
+      "Baghdad"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      33,
+      44
+    ]
+  },
+  {
+    "id": "IRL",
+    "ccn3": "372",
+    "name": "Ireland",
+    "officialName": "Republic of Ireland",
+    "altNames": [
+      "Éire",
+      "Republic of Ireland",
+      "Poblacht na hÉireann"
+    ],
+    "capitals": [
+      "Dublin"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      53,
+      -8
+    ]
+  },
+  {
+    "id": "ISR",
+    "ccn3": "376",
+    "name": "Israel",
+    "officialName": "State of Israel",
+    "altNames": [
+      "State of Israel",
+      "Medīnat Yisrā'el"
+    ],
+    "capitals": [
+      "Jerusalem"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      31.47,
+      35.13
+    ]
+  },
+  {
+    "id": "ITA",
+    "ccn3": "380",
+    "name": "Italy",
+    "officialName": "Italian Republic",
+    "altNames": [
+      "Italian Republic",
+      "Repubblica italiana"
+    ],
+    "capitals": [
+      "Rome"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      42.83333333,
+      12.83333333
+    ]
+  },
+  {
+    "id": "CIV",
+    "ccn3": "384",
+    "name": "Ivory Coast",
+    "officialName": "Republic of Côte d'Ivoire",
+    "altNames": [
+      "Côte d'Ivoire",
+      "Cote d'Ivoire",
+      "Ivory Coast",
+      "Republic of Côte d'Ivoire",
+      "République de Côte d'Ivoire"
+    ],
+    "capitals": [
+      "Yamoussoukro"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      8,
+      -5
+    ]
+  },
+  {
+    "id": "JAM",
+    "ccn3": "388",
+    "name": "Jamaica",
+    "officialName": "Jamaica",
+    "altNames": [],
+    "capitals": [
+      "Kingston"
+    ],
+    "continent": "North America",
+    "latlng": [
+      18.25,
+      -77.5
+    ]
+  },
+  {
+    "id": "JPN",
+    "ccn3": "392",
+    "name": "Japan",
+    "officialName": "Japan",
+    "altNames": [
+      "Nippon",
+      "Nihon"
+    ],
+    "capitals": [
+      "Tokyo"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      36,
+      138
+    ]
+  },
+  {
+    "id": "JOR",
+    "ccn3": "400",
+    "name": "Jordan",
+    "officialName": "Hashemite Kingdom of Jordan",
+    "altNames": [
+      "Hashemite Kingdom of Jordan",
+      "al-Mamlakah al-Urdunīyah al-Hāshimīyah"
+    ],
+    "capitals": [
+      "Amman"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      31,
+      36
+    ]
+  },
+  {
+    "id": "KAZ",
+    "ccn3": "398",
+    "name": "Kazakhstan",
+    "officialName": "Republic of Kazakhstan",
+    "altNames": [
+      "Qazaqstan",
+      "Казахстан",
+      "Republic of Kazakhstan",
+      "Қазақстан Республикасы",
+      "Qazaqstan Respublïkası",
+      "Республика Казахстан",
+      "Respublika Kazakhstan"
+    ],
+    "capitals": [
+      "Astana"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      48,
+      68
+    ]
+  },
+  {
+    "id": "KEN",
+    "ccn3": "404",
+    "name": "Kenya",
+    "officialName": "Republic of Kenya",
+    "altNames": [
+      "Republic of Kenya",
+      "Jamhuri ya Kenya"
+    ],
+    "capitals": [
+      "Nairobi"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      1,
+      38
+    ]
+  },
+  {
+    "id": "KIR",
+    "ccn3": "296",
+    "name": "Kiribati",
+    "officialName": "Independent and Sovereign Republic of Kiribati",
+    "altNames": [
+      "Republic of Kiribati",
+      "Ribaberiki Kiribati"
+    ],
+    "capitals": [
+      "South Tarawa"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      1.41666666,
+      173
+    ]
+  },
+  {
+    "id": "UNK",
+    "ccn3": "",
+    "name": "Kosovo",
+    "officialName": "Republic of Kosovo",
+    "altNames": [
+      "Република Косово"
+    ],
+    "capitals": [
+      "Pristina"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      42.666667,
+      21.166667
+    ]
+  },
+  {
+    "id": "KWT",
+    "ccn3": "414",
+    "name": "Kuwait",
+    "officialName": "State of Kuwait",
+    "altNames": [
+      "State of Kuwait",
+      "Dawlat al-Kuwait"
+    ],
+    "capitals": [
+      "Kuwait City"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      29.5,
+      45.75
+    ]
+  },
+  {
+    "id": "KGZ",
+    "ccn3": "417",
+    "name": "Kyrgyzstan",
+    "officialName": "Kyrgyz Republic",
+    "altNames": [
+      "Киргизия",
+      "Kyrgyz Republic",
+      "Кыргыз Республикасы",
+      "Kyrgyz Respublikasy"
+    ],
+    "capitals": [
+      "Bishkek"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      41,
+      75
+    ]
+  },
+  {
+    "id": "LAO",
+    "ccn3": "418",
+    "name": "Laos",
+    "officialName": "Lao People's Democratic Republic",
+    "altNames": [
+      "Lao",
+      "Lao People's Democratic Republic",
+      "Sathalanalat Paxathipatai Paxaxon Lao"
+    ],
+    "capitals": [
+      "Vientiane"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      18,
+      105
+    ]
+  },
+  {
+    "id": "LVA",
+    "ccn3": "428",
+    "name": "Latvia",
+    "officialName": "Republic of Latvia",
+    "altNames": [
+      "Republic of Latvia",
+      "Latvijas Republika"
+    ],
+    "capitals": [
+      "Riga"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      57,
+      25
+    ]
+  },
+  {
+    "id": "LBN",
+    "ccn3": "422",
+    "name": "Lebanon",
+    "officialName": "Lebanese Republic",
+    "altNames": [
+      "Lebanese Republic",
+      "Al-Jumhūrīyah Al-Libnānīyah"
+    ],
+    "capitals": [
+      "Beirut"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      33.83333333,
+      35.83333333
+    ]
+  },
+  {
+    "id": "LSO",
+    "ccn3": "426",
+    "name": "Lesotho",
+    "officialName": "Kingdom of Lesotho",
+    "altNames": [
+      "Kingdom of Lesotho",
+      "Muso oa Lesotho"
+    ],
+    "capitals": [
+      "Maseru"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -29.5,
+      28.5
+    ]
+  },
+  {
+    "id": "LBR",
+    "ccn3": "430",
+    "name": "Liberia",
+    "officialName": "Republic of Liberia",
+    "altNames": [
+      "Republic of Liberia"
+    ],
+    "capitals": [
+      "Monrovia"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      6.5,
+      -9.5
+    ]
+  },
+  {
+    "id": "LBY",
+    "ccn3": "434",
+    "name": "Libya",
+    "officialName": "State of Libya",
+    "altNames": [
+      "State of Libya",
+      "Dawlat Libya"
+    ],
+    "capitals": [
+      "Tripoli"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      25,
+      17
+    ]
+  },
+  {
+    "id": "LIE",
+    "ccn3": "438",
+    "name": "Liechtenstein",
+    "officialName": "Principality of Liechtenstein",
+    "altNames": [
+      "Principality of Liechtenstein",
+      "Fürstentum Liechtenstein"
+    ],
+    "capitals": [
+      "Vaduz"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      47.26666666,
+      9.53333333
+    ]
+  },
+  {
+    "id": "LTU",
+    "ccn3": "440",
+    "name": "Lithuania",
+    "officialName": "Republic of Lithuania",
+    "altNames": [
+      "Republic of Lithuania",
+      "Lietuvos Respublika"
+    ],
+    "capitals": [
+      "Vilnius"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      56,
+      24
+    ]
+  },
+  {
+    "id": "LUX",
+    "ccn3": "442",
+    "name": "Luxembourg",
+    "officialName": "Grand Duchy of Luxembourg",
+    "altNames": [
+      "Grand Duchy of Luxembourg",
+      "Grand-Duché de Luxembourg",
+      "Großherzogtum Luxemburg",
+      "Groussherzogtum Lëtzebuerg"
+    ],
+    "capitals": [
+      "Luxembourg"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      49.75,
+      6.16666666
+    ]
+  },
+  {
+    "id": "MDG",
+    "ccn3": "450",
+    "name": "Madagascar",
+    "officialName": "Republic of Madagascar",
+    "altNames": [
+      "Republic of Madagascar",
+      "Repoblikan'i Madagasikara",
+      "République de Madagascar"
+    ],
+    "capitals": [
+      "Antananarivo"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -20,
+      47
+    ]
+  },
+  {
+    "id": "MWI",
+    "ccn3": "454",
+    "name": "Malawi",
+    "officialName": "Republic of Malawi",
+    "altNames": [
+      "Republic of Malawi"
+    ],
+    "capitals": [
+      "Lilongwe"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -13.5,
+      34
+    ]
+  },
+  {
+    "id": "MYS",
+    "ccn3": "458",
+    "name": "Malaysia",
+    "officialName": "Malaysia",
+    "altNames": [],
+    "capitals": [
+      "Kuala Lumpur"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      2.5,
+      112.5
+    ]
+  },
+  {
+    "id": "MDV",
+    "ccn3": "462",
+    "name": "Maldives",
+    "officialName": "Republic of the Maldives",
+    "altNames": [
+      "Maldive Islands",
+      "Republic of the Maldives",
+      "Dhivehi Raajjeyge Jumhooriyya"
+    ],
+    "capitals": [
+      "Malé"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      3.25,
+      73
+    ]
+  },
+  {
+    "id": "MLI",
+    "ccn3": "466",
+    "name": "Mali",
+    "officialName": "Republic of Mali",
+    "altNames": [
+      "Republic of Mali",
+      "République du Mali"
+    ],
+    "capitals": [
+      "Bamako"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      17,
+      -4
+    ]
+  },
+  {
+    "id": "MLT",
+    "ccn3": "470",
+    "name": "Malta",
+    "officialName": "Republic of Malta",
+    "altNames": [
+      "Republic of Malta",
+      "Repubblika ta' Malta"
+    ],
+    "capitals": [
+      "Valletta"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      35.83333333,
+      14.58333333
+    ]
+  },
+  {
+    "id": "MHL",
+    "ccn3": "584",
+    "name": "Marshall Islands",
+    "officialName": "Republic of the Marshall Islands",
+    "altNames": [
+      "Republic of the Marshall Islands",
+      "Aolepān Aorōkin M̧ajeļ"
+    ],
+    "capitals": [
+      "Majuro"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      9,
+      168
+    ]
+  },
+  {
+    "id": "MRT",
+    "ccn3": "478",
+    "name": "Mauritania",
+    "officialName": "Islamic Republic of Mauritania",
+    "altNames": [
+      "Islamic Republic of Mauritania",
+      "al-Jumhūriyyah al-ʾIslāmiyyah al-Mūrītāniyyah"
+    ],
+    "capitals": [
+      "Nouakchott"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      20,
+      -12
+    ]
+  },
+  {
+    "id": "MUS",
+    "ccn3": "480",
+    "name": "Mauritius",
+    "officialName": "Republic of Mauritius",
+    "altNames": [
+      "Republic of Mauritius",
+      "République de Maurice"
+    ],
+    "capitals": [
+      "Port Louis"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -20.28333333,
+      57.55
+    ]
+  },
+  {
+    "id": "MEX",
+    "ccn3": "484",
+    "name": "Mexico",
+    "officialName": "United Mexican States",
+    "altNames": [
+      "Mexicanos",
+      "United Mexican States",
+      "Estados Unidos Mexicanos"
+    ],
+    "capitals": [
+      "Mexico City"
+    ],
+    "continent": "North America",
+    "latlng": [
+      23,
+      -102
+    ]
+  },
+  {
+    "id": "FSM",
+    "ccn3": "583",
+    "name": "Micronesia",
+    "officialName": "Federated States of Micronesia",
+    "altNames": [
+      "Federated States of Micronesia",
+      "Micronesia, Federated States of"
+    ],
+    "capitals": [
+      "Palikir"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      6.91666666,
+      158.25
+    ]
+  },
+  {
+    "id": "MDA",
+    "ccn3": "498",
+    "name": "Moldova",
+    "officialName": "Republic of Moldova",
+    "altNames": [
+      "Moldova, Republic of",
+      "Republic of Moldova",
+      "Republica Moldova"
+    ],
+    "capitals": [
+      "Chișinău"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      47,
+      29
+    ]
+  },
+  {
+    "id": "MCO",
+    "ccn3": "492",
+    "name": "Monaco",
+    "officialName": "Principality of Monaco",
+    "altNames": [
+      "Principality of Monaco",
+      "Principauté de Monaco"
+    ],
+    "capitals": [
+      "Monaco"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      43.73333333,
+      7.4
+    ]
+  },
+  {
+    "id": "MNG",
+    "ccn3": "496",
+    "name": "Mongolia",
+    "officialName": "Mongolia",
+    "altNames": [],
+    "capitals": [
+      "Ulan Bator"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      46,
+      105
+    ]
+  },
+  {
+    "id": "MNE",
+    "ccn3": "499",
+    "name": "Montenegro",
+    "officialName": "Montenegro",
+    "altNames": [
+      "Crna Gora"
+    ],
+    "capitals": [
+      "Podgorica"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      42.5,
+      19.3
+    ]
+  },
+  {
+    "id": "MAR",
+    "ccn3": "504",
+    "name": "Morocco",
+    "officialName": "Kingdom of Morocco",
+    "altNames": [
+      "Kingdom of Morocco",
+      "Al-Mamlakah al-Maġribiyah"
+    ],
+    "capitals": [
+      "Rabat"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      32,
+      -5
+    ]
+  },
+  {
+    "id": "MOZ",
+    "ccn3": "508",
+    "name": "Mozambique",
+    "officialName": "Republic of Mozambique",
+    "altNames": [
+      "Republic of Mozambique",
+      "República de Moçambique"
+    ],
+    "capitals": [
+      "Maputo"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -18.25,
+      35
+    ]
+  },
+  {
+    "id": "MMR",
+    "ccn3": "104",
+    "name": "Myanmar",
+    "officialName": "Republic of the Union of Myanmar",
+    "altNames": [
+      "Burma",
+      "Republic of the Union of Myanmar",
+      "Pyidaunzu Thanmăda Myăma Nainngandaw"
+    ],
+    "capitals": [
+      "Naypyidaw"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      22,
+      98
+    ]
+  },
+  {
+    "id": "NAM",
+    "ccn3": "516",
+    "name": "Namibia",
+    "officialName": "Republic of Namibia",
+    "altNames": [
+      "Namibië",
+      "Republic of Namibia"
+    ],
+    "capitals": [
+      "Windhoek"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -22,
+      17
+    ]
+  },
+  {
+    "id": "NRU",
+    "ccn3": "520",
+    "name": "Nauru",
+    "officialName": "Republic of Nauru",
+    "altNames": [
+      "Naoero",
+      "Pleasant Island",
+      "Republic of Nauru",
+      "Ripublik Naoero"
+    ],
+    "capitals": [
+      "Yaren"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -0.53333333,
+      166.91666666
+    ]
+  },
+  {
+    "id": "NPL",
+    "ccn3": "524",
+    "name": "Nepal",
+    "officialName": "Federal Democratic Republic of Nepal",
+    "altNames": [
+      "Federal Democratic Republic of Nepal",
+      "Loktāntrik Ganatantra Nepāl"
+    ],
+    "capitals": [
+      "Kathmandu"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      28,
+      84
+    ]
+  },
+  {
+    "id": "NLD",
+    "ccn3": "528",
+    "name": "Netherlands",
+    "officialName": "Kingdom of the Netherlands",
+    "altNames": [
+      "Holland",
+      "Nederland",
+      "The Netherlands"
+    ],
+    "capitals": [
+      "Amsterdam"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      52.5,
+      5.75
+    ]
+  },
+  {
+    "id": "NZL",
+    "ccn3": "554",
+    "name": "New Zealand",
+    "officialName": "New Zealand",
+    "altNames": [
+      "Aotearoa"
+    ],
+    "capitals": [
+      "Wellington"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -41,
+      174
+    ]
+  },
+  {
+    "id": "NIC",
+    "ccn3": "558",
+    "name": "Nicaragua",
+    "officialName": "Republic of Nicaragua",
+    "altNames": [
+      "Republic of Nicaragua",
+      "República de Nicaragua"
+    ],
+    "capitals": [
+      "Managua"
+    ],
+    "continent": "North America",
+    "latlng": [
+      13,
+      -85
+    ]
+  },
+  {
+    "id": "NER",
+    "ccn3": "562",
+    "name": "Niger",
+    "officialName": "Republic of Niger",
+    "altNames": [
+      "Nijar"
+    ],
+    "capitals": [
+      "Niamey"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      16,
+      8
+    ]
+  },
+  {
+    "id": "NGA",
+    "ccn3": "566",
+    "name": "Nigeria",
+    "officialName": "Federal Republic of Nigeria",
+    "altNames": [
+      "Nijeriya",
+      "Naíjíríà",
+      "Federal Republic of Nigeria"
+    ],
+    "capitals": [
+      "Abuja"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      10,
+      8
+    ]
+  },
+  {
+    "id": "PRK",
+    "ccn3": "408",
+    "name": "North Korea",
+    "officialName": "Democratic People's Republic of Korea",
+    "altNames": [
+      "Democratic People's Republic of Korea",
+      "DPRK",
+      "조선민주주의인민공화국",
+      "Chosŏn Minjujuŭi Inmin Konghwaguk",
+      "Korea, Democratic People's Republic of",
+      "북조선"
+    ],
+    "capitals": [
+      "Pyongyang"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      40,
+      127
+    ]
+  },
+  {
+    "id": "MKD",
+    "ccn3": "807",
+    "name": "North Macedonia",
+    "officialName": "Republic of North Macedonia",
+    "altNames": [
+      "The former Yugoslav Republic of Macedonia",
+      "Republic of North Macedonia",
+      "Macedonia, The Former Yugoslav Republic of",
+      "Република Северна Македонија",
+      "Macedonia"
+    ],
+    "capitals": [
+      "Skopje"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      41.83333333,
+      22
+    ]
+  },
+  {
+    "id": "NOR",
+    "ccn3": "578",
+    "name": "Norway",
+    "officialName": "Kingdom of Norway",
+    "altNames": [
+      "Norge",
+      "Noreg",
+      "Kingdom of Norway",
+      "Kongeriket Norge",
+      "Kongeriket Noreg"
+    ],
+    "capitals": [
+      "Oslo"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      62,
+      10
+    ]
+  },
+  {
+    "id": "OMN",
+    "ccn3": "512",
+    "name": "Oman",
+    "officialName": "Sultanate of Oman",
+    "altNames": [
+      "Sultanate of Oman",
+      "Salṭanat ʻUmān"
+    ],
+    "capitals": [
+      "Muscat"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      21,
+      57
+    ]
+  },
+  {
+    "id": "PAK",
+    "ccn3": "586",
+    "name": "Pakistan",
+    "officialName": "Islamic Republic of Pakistan",
+    "altNames": [
+      "Pākistān",
+      "Islamic Republic of Pakistan",
+      "Islāmī Jumhūriya'eh Pākistān"
+    ],
+    "capitals": [
+      "Islamabad"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      30,
+      70
+    ]
+  },
+  {
+    "id": "PLW",
+    "ccn3": "585",
+    "name": "Palau",
+    "officialName": "Republic of Palau",
+    "altNames": [
+      "Republic of Palau",
+      "Beluu er a Belau"
+    ],
+    "capitals": [
+      "Ngerulmud"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      7.5,
+      134.5
+    ]
+  },
+  {
+    "id": "PSE",
+    "ccn3": "275",
+    "name": "Palestine",
+    "officialName": "State of Palestine",
+    "altNames": [
+      "Palestine, State of",
+      "State of Palestine",
+      "Dawlat Filasṭin"
+    ],
+    "capitals": [
+      "Ramallah"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      31.9,
+      35.2
+    ]
+  },
+  {
+    "id": "PAN",
+    "ccn3": "591",
+    "name": "Panama",
+    "officialName": "Republic of Panama",
+    "altNames": [
+      "Republic of Panama",
+      "República de Panamá"
+    ],
+    "capitals": [
+      "Panama City"
+    ],
+    "continent": "North America",
+    "latlng": [
+      9,
+      -80
+    ]
+  },
+  {
+    "id": "PNG",
+    "ccn3": "598",
+    "name": "Papua New Guinea",
+    "officialName": "Independent State of Papua New Guinea",
+    "altNames": [
+      "Independent State of Papua New Guinea",
+      "Independen Stet bilong Papua Niugini"
+    ],
+    "capitals": [
+      "Port Moresby"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -6,
+      147
+    ]
+  },
+  {
+    "id": "PRY",
+    "ccn3": "600",
+    "name": "Paraguay",
+    "officialName": "Republic of Paraguay",
+    "altNames": [
+      "Republic of Paraguay",
+      "República del Paraguay",
+      "Tetã Paraguái"
+    ],
+    "capitals": [
+      "Asunción"
+    ],
+    "continent": "South America",
+    "latlng": [
+      -23,
+      -58
+    ]
+  },
+  {
+    "id": "PER",
+    "ccn3": "604",
+    "name": "Peru",
+    "officialName": "Republic of Peru",
+    "altNames": [
+      "Republic of Peru",
+      "República del Perú"
+    ],
+    "capitals": [
+      "Lima"
+    ],
+    "continent": "South America",
+    "latlng": [
+      -10,
+      -76
+    ]
+  },
+  {
+    "id": "PHL",
+    "ccn3": "608",
+    "name": "Philippines",
+    "officialName": "Republic of the Philippines",
+    "altNames": [
+      "Republic of the Philippines",
+      "Repúblika ng Pilipinas"
+    ],
+    "capitals": [
+      "Manila"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      13,
+      122
+    ]
+  },
+  {
+    "id": "POL",
+    "ccn3": "616",
+    "name": "Poland",
+    "officialName": "Republic of Poland",
+    "altNames": [
+      "Republic of Poland",
+      "Rzeczpospolita Polska"
+    ],
+    "capitals": [
+      "Warsaw"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      52,
+      20
+    ]
+  },
+  {
+    "id": "PRT",
+    "ccn3": "620",
+    "name": "Portugal",
+    "officialName": "Portuguese Republic",
+    "altNames": [
+      "Portuguesa",
+      "Portuguese Republic",
+      "República Portuguesa"
+    ],
+    "capitals": [
+      "Lisbon"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      39.5,
+      -8
+    ]
+  },
+  {
+    "id": "QAT",
+    "ccn3": "634",
+    "name": "Qatar",
+    "officialName": "State of Qatar",
+    "altNames": [
+      "State of Qatar",
+      "Dawlat Qaṭar"
+    ],
+    "capitals": [
+      "Doha"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      25.5,
+      51.25
+    ]
+  },
+  {
+    "id": "COG",
+    "ccn3": "178",
+    "name": "Republic of the Congo",
+    "officialName": "Republic of the Congo",
+    "altNames": [
+      "Congo",
+      "Congo-Brazzaville"
+    ],
+    "capitals": [
+      "Brazzaville"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -1,
+      15
+    ]
+  },
+  {
+    "id": "ROU",
+    "ccn3": "642",
+    "name": "Romania",
+    "officialName": "Romania",
+    "altNames": [
+      "Rumania",
+      "Roumania",
+      "România"
+    ],
+    "capitals": [
+      "Bucharest"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      46,
+      25
+    ]
+  },
+  {
+    "id": "RUS",
+    "ccn3": "643",
+    "name": "Russia",
+    "officialName": "Russian Federation",
+    "altNames": [
+      "Russian Federation",
+      "Российская Федерация"
+    ],
+    "capitals": [
+      "Moscow"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      60,
+      100
+    ]
+  },
+  {
+    "id": "RWA",
+    "ccn3": "646",
+    "name": "Rwanda",
+    "officialName": "Republic of Rwanda",
+    "altNames": [
+      "Republic of Rwanda",
+      "Repubulika y'u Rwanda",
+      "République du Rwanda"
+    ],
+    "capitals": [
+      "Kigali"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -2,
+      30
+    ]
+  },
+  {
+    "id": "KNA",
+    "ccn3": "659",
+    "name": "Saint Kitts and Nevis",
+    "officialName": "Federation of Saint Christopher and Nevis",
+    "altNames": [
+      "Federation of Saint Christopher and Nevis"
+    ],
+    "capitals": [
+      "Basseterre"
+    ],
+    "continent": "North America",
+    "latlng": [
+      17.33333333,
+      -62.75
+    ]
+  },
+  {
+    "id": "LCA",
+    "ccn3": "662",
+    "name": "Saint Lucia",
+    "officialName": "Saint Lucia",
+    "altNames": [],
+    "capitals": [
+      "Castries"
+    ],
+    "continent": "North America",
+    "latlng": [
+      13.88333333,
+      -60.96666666
+    ]
+  },
+  {
+    "id": "VCT",
+    "ccn3": "670",
+    "name": "Saint Vincent and the Grenadines",
+    "officialName": "Saint Vincent and the Grenadines",
+    "altNames": [],
+    "capitals": [
+      "Kingstown"
+    ],
+    "continent": "North America",
+    "latlng": [
+      13.25,
+      -61.2
+    ]
+  },
+  {
+    "id": "WSM",
+    "ccn3": "882",
+    "name": "Samoa",
+    "officialName": "Independent State of Samoa",
+    "altNames": [
+      "Independent State of Samoa",
+      "Malo Saʻoloto Tutoʻatasi o Sāmoa"
+    ],
+    "capitals": [
+      "Apia"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -13.58333333,
+      -172.33333333
+    ]
+  },
+  {
+    "id": "SMR",
+    "ccn3": "674",
+    "name": "San Marino",
+    "officialName": "Most Serene Republic of San Marino",
+    "altNames": [
+      "Republic of San Marino",
+      "Repubblica di San Marino"
+    ],
+    "capitals": [
+      "City of San Marino"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      43.76666666,
+      12.41666666
+    ]
+  },
+  {
+    "id": "STP",
+    "ccn3": "678",
+    "name": "São Tomé and Príncipe",
+    "officialName": "Democratic Republic of São Tomé and Príncipe",
+    "altNames": [
+      "Democratic Republic of São Tomé and Príncipe",
+      "Sao Tome and Principe",
+      "República Democrática de São Tomé e Príncipe"
+    ],
+    "capitals": [
+      "São Tomé"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      1,
+      7
+    ]
+  },
+  {
+    "id": "SAU",
+    "ccn3": "682",
+    "name": "Saudi Arabia",
+    "officialName": "Kingdom of Saudi Arabia",
+    "altNames": [
+      "Saudi",
+      "Kingdom of Saudi Arabia",
+      "Al-Mamlakah al-‘Arabiyyah as-Su‘ūdiyyah"
+    ],
+    "capitals": [
+      "Riyadh"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      25,
+      45
+    ]
+  },
+  {
+    "id": "SEN",
+    "ccn3": "686",
+    "name": "Senegal",
+    "officialName": "Republic of Senegal",
+    "altNames": [
+      "Republic of Senegal",
+      "République du Sénégal"
+    ],
+    "capitals": [
+      "Dakar"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      14,
+      -14
+    ]
+  },
+  {
+    "id": "SRB",
+    "ccn3": "688",
+    "name": "Serbia",
+    "officialName": "Republic of Serbia",
+    "altNames": [
+      "Srbija",
+      "Republika Srbija",
+      "Србија",
+      "Република Србија",
+      "Republic of Serbia"
+    ],
+    "capitals": [
+      "Belgrade"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      44,
+      21
+    ]
+  },
+  {
+    "id": "SYC",
+    "ccn3": "690",
+    "name": "Seychelles",
+    "officialName": "Republic of Seychelles",
+    "altNames": [
+      "Republic of Seychelles",
+      "Repiblik Sesel",
+      "République des Seychelles"
+    ],
+    "capitals": [
+      "Victoria"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -4.58333333,
+      55.66666666
+    ]
+  },
+  {
+    "id": "SLE",
+    "ccn3": "694",
+    "name": "Sierra Leone",
+    "officialName": "Republic of Sierra Leone",
+    "altNames": [
+      "Republic of Sierra Leone"
+    ],
+    "capitals": [
+      "Freetown"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      8.5,
+      -11.5
+    ]
+  },
+  {
+    "id": "SGP",
+    "ccn3": "702",
+    "name": "Singapore",
+    "officialName": "Republic of Singapore",
+    "altNames": [
+      "Singapura",
+      "Republik Singapura",
+      "新加坡共和国"
+    ],
+    "capitals": [
+      "Singapore"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      1.36666666,
+      103.8
+    ]
+  },
+  {
+    "id": "SVK",
+    "ccn3": "703",
+    "name": "Slovakia",
+    "officialName": "Slovak Republic",
+    "altNames": [
+      "Slovak Republic",
+      "Slovenská republika"
+    ],
+    "capitals": [
+      "Bratislava"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      48.66666666,
+      19.5
+    ]
+  },
+  {
+    "id": "SVN",
+    "ccn3": "705",
+    "name": "Slovenia",
+    "officialName": "Republic of Slovenia",
+    "altNames": [
+      "Republic of Slovenia",
+      "Republika Slovenija"
+    ],
+    "capitals": [
+      "Ljubljana"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      46.11666666,
+      14.81666666
+    ]
+  },
+  {
+    "id": "SLB",
+    "ccn3": "090",
+    "name": "Solomon Islands",
+    "officialName": "Solomon Islands",
+    "altNames": [],
+    "capitals": [
+      "Honiara"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -8,
+      159
+    ]
+  },
+  {
+    "id": "SOM",
+    "ccn3": "706",
+    "name": "Somalia",
+    "officialName": "Federal Republic of Somalia",
+    "altNames": [
+      "aṣ-Ṣūmāl",
+      "Federal Republic of Somalia",
+      "Jamhuuriyadda Federaalka Soomaaliya",
+      "Jumhūriyyat aṣ-Ṣūmāl al-Fiderāliyya"
+    ],
+    "capitals": [
+      "Mogadishu"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      10,
+      49
+    ]
+  },
+  {
+    "id": "ZAF",
+    "ccn3": "710",
+    "name": "South Africa",
+    "officialName": "Republic of South Africa",
+    "altNames": [
+      "RSA",
+      "Suid-Afrika",
+      "Republic of South Africa"
+    ],
+    "capitals": [
+      "Pretoria",
+      "Bloemfontein",
+      "Cape Town"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -29,
+      24
+    ]
+  },
+  {
+    "id": "KOR",
+    "ccn3": "410",
+    "name": "South Korea",
+    "officialName": "Republic of Korea",
+    "altNames": [
+      "Korea, Republic of",
+      "Republic of Korea",
+      "남조선"
+    ],
+    "capitals": [
+      "Seoul"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      37,
+      127.5
+    ]
+  },
+  {
+    "id": "SSD",
+    "ccn3": "728",
+    "name": "South Sudan",
+    "officialName": "Republic of South Sudan",
+    "altNames": [],
+    "capitals": [
+      "Juba"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      7,
+      30
+    ]
+  },
+  {
+    "id": "ESP",
+    "ccn3": "724",
+    "name": "Spain",
+    "officialName": "Kingdom of Spain",
+    "altNames": [
+      "Kingdom of Spain",
+      "Reino de España"
+    ],
+    "capitals": [
+      "Madrid"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      40,
+      -4
+    ]
+  },
+  {
+    "id": "LKA",
+    "ccn3": "144",
+    "name": "Sri Lanka",
+    "officialName": "Democratic Socialist Republic of Sri Lanka",
+    "altNames": [
+      "ilaṅkai",
+      "Democratic Socialist Republic of Sri Lanka"
+    ],
+    "capitals": [
+      "Colombo"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      7,
+      81
+    ]
+  },
+  {
+    "id": "SDN",
+    "ccn3": "729",
+    "name": "Sudan",
+    "officialName": "Republic of the Sudan",
+    "altNames": [
+      "Republic of the Sudan",
+      "Jumhūrīyat as-Sūdān"
+    ],
+    "capitals": [
+      "Khartoum"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      15,
+      30
+    ]
+  },
+  {
+    "id": "SUR",
+    "ccn3": "740",
+    "name": "Suriname",
+    "officialName": "Republic of Suriname",
+    "altNames": [
+      "Sarnam",
+      "Sranangron",
+      "Republic of Suriname",
+      "Republiek Suriname"
+    ],
+    "capitals": [
+      "Paramaribo"
+    ],
+    "continent": "South America",
+    "latlng": [
+      4,
+      -56
+    ]
+  },
+  {
+    "id": "SWE",
+    "ccn3": "752",
+    "name": "Sweden",
+    "officialName": "Kingdom of Sweden",
+    "altNames": [
+      "Kingdom of Sweden",
+      "Konungariket Sverige"
+    ],
+    "capitals": [
+      "Stockholm"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      62,
+      15
+    ]
+  },
+  {
+    "id": "CHE",
+    "ccn3": "756",
+    "name": "Switzerland",
+    "officialName": "Swiss Confederation",
+    "altNames": [
+      "Swiss Confederation",
+      "Schweiz",
+      "Suisse",
+      "Svizzera",
+      "Svizra"
+    ],
+    "capitals": [
+      "Bern"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      47,
+      8
+    ]
+  },
+  {
+    "id": "SYR",
+    "ccn3": "760",
+    "name": "Syria",
+    "officialName": "Syrian Arab Republic",
+    "altNames": [
+      "Syrian Arab Republic",
+      "Al-Jumhūrīyah Al-ʻArabīyah As-Sūrīyah"
+    ],
+    "capitals": [
+      "Damascus"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      35,
+      38
+    ]
+  },
+  {
+    "id": "TWN",
+    "ccn3": "158",
+    "name": "Taiwan",
+    "officialName": "Republic of China (Taiwan)",
+    "altNames": [
+      "Táiwān",
+      "Republic of China",
+      "中華民國",
+      "Zhōnghuá Mínguó",
+      "Chinese Taipei"
+    ],
+    "capitals": [
+      "Taipei"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      23.5,
+      121
+    ]
+  },
+  {
+    "id": "TJK",
+    "ccn3": "762",
+    "name": "Tajikistan",
+    "officialName": "Republic of Tajikistan",
+    "altNames": [
+      "Toçikiston",
+      "Republic of Tajikistan",
+      "Ҷумҳурии Тоҷикистон",
+      "Çumhuriyi Toçikiston"
+    ],
+    "capitals": [
+      "Dushanbe"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      39,
+      71
+    ]
+  },
+  {
+    "id": "TZA",
+    "ccn3": "834",
+    "name": "Tanzania",
+    "officialName": "United Republic of Tanzania",
+    "altNames": [
+      "Tanzania, United Republic of",
+      "United Republic of Tanzania",
+      "Jamhuri ya Muungano wa Tanzania"
+    ],
+    "capitals": [
+      "Dodoma"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -6,
+      35
+    ]
+  },
+  {
+    "id": "THA",
+    "ccn3": "764",
+    "name": "Thailand",
+    "officialName": "Kingdom of Thailand",
+    "altNames": [
+      "Prathet",
+      "Thai",
+      "Kingdom of Thailand",
+      "ราชอาณาจักรไทย",
+      "Ratcha Anachak Thai"
+    ],
+    "capitals": [
+      "Bangkok"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      15,
+      100
+    ]
+  },
+  {
+    "id": "TLS",
+    "ccn3": "626",
+    "name": "Timor-Leste",
+    "officialName": "Democratic Republic of Timor-Leste",
+    "altNames": [
+      "East Timor",
+      "Timor",
+      "Democratic Republic of Timor-Leste",
+      "República Democrática de Timor-Leste",
+      "Repúblika Demokrátika Timór-Leste",
+      "Timór Lorosa'e",
+      "Timor Lorosae"
+    ],
+    "capitals": [
+      "Dili"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      -8.83333333,
+      125.91666666
+    ]
+  },
+  {
+    "id": "TGO",
+    "ccn3": "768",
+    "name": "Togo",
+    "officialName": "Togolese Republic",
+    "altNames": [
+      "Togolese",
+      "Togolese Republic",
+      "République Togolaise"
+    ],
+    "capitals": [
+      "Lomé"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      8,
+      1.16666666
+    ]
+  },
+  {
+    "id": "TON",
+    "ccn3": "776",
+    "name": "Tonga",
+    "officialName": "Kingdom of Tonga",
+    "altNames": [],
+    "capitals": [
+      "Nuku'alofa"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -20,
+      -175
+    ]
+  },
+  {
+    "id": "TTO",
+    "ccn3": "780",
+    "name": "Trinidad and Tobago",
+    "officialName": "Republic of Trinidad and Tobago",
+    "altNames": [
+      "Republic of Trinidad and Tobago"
+    ],
+    "capitals": [
+      "Port of Spain"
+    ],
+    "continent": "North America",
+    "latlng": [
+      11,
+      -61
+    ]
+  },
+  {
+    "id": "TUN",
+    "ccn3": "788",
+    "name": "Tunisia",
+    "officialName": "Tunisian Republic",
+    "altNames": [
+      "Republic of Tunisia",
+      "al-Jumhūriyyah at-Tūnisiyyah"
+    ],
+    "capitals": [
+      "Tunis"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      34,
+      9
+    ]
+  },
+  {
+    "id": "TUR",
+    "ccn3": "792",
+    "name": "Türkiye",
+    "officialName": "Republic of Türkiye",
+    "altNames": [
+      "Turkiye",
+      "Republic of Turkey",
+      "Türkiye Cumhuriyeti"
+    ],
+    "capitals": [
+      "Ankara"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      39,
+      35
+    ]
+  },
+  {
+    "id": "TKM",
+    "ccn3": "795",
+    "name": "Turkmenistan",
+    "officialName": "Turkmenistan",
+    "altNames": [],
+    "capitals": [
+      "Ashgabat"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      40,
+      60
+    ]
+  },
+  {
+    "id": "TUV",
+    "ccn3": "798",
+    "name": "Tuvalu",
+    "officialName": "Tuvalu",
+    "altNames": [],
+    "capitals": [
+      "Funafuti"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -8,
+      178
+    ]
+  },
+  {
+    "id": "UGA",
+    "ccn3": "800",
+    "name": "Uganda",
+    "officialName": "Republic of Uganda",
+    "altNames": [
+      "Republic of Uganda",
+      "Jamhuri ya Uganda"
+    ],
+    "capitals": [
+      "Kampala"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      1,
+      32
+    ]
+  },
+  {
+    "id": "UKR",
+    "ccn3": "804",
+    "name": "Ukraine",
+    "officialName": "Ukraine",
+    "altNames": [
+      "Ukrayina"
+    ],
+    "capitals": [
+      "Kyiv"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      49,
+      32
+    ]
+  },
+  {
+    "id": "ARE",
+    "ccn3": "784",
+    "name": "United Arab Emirates",
+    "officialName": "United Arab Emirates",
+    "altNames": [
+      "UAE",
+      "Emirates"
+    ],
+    "capitals": [
+      "Abu Dhabi"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      24,
+      54
+    ]
+  },
+  {
+    "id": "GBR",
+    "ccn3": "826",
+    "name": "United Kingdom",
+    "officialName": "United Kingdom of Great Britain and Northern Ireland",
+    "altNames": [
+      "Great Britain"
+    ],
+    "capitals": [
+      "London"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      54,
+      -2
+    ]
+  },
+  {
+    "id": "USA",
+    "ccn3": "840",
+    "name": "United States",
+    "officialName": "United States of America",
+    "altNames": [
+      "USA",
+      "United States of America"
+    ],
+    "capitals": [
+      "Washington D.C."
+    ],
+    "continent": "North America",
+    "latlng": [
+      38,
+      -97
+    ]
+  },
+  {
+    "id": "URY",
+    "ccn3": "858",
+    "name": "Uruguay",
+    "officialName": "Oriental Republic of Uruguay",
+    "altNames": [
+      "Oriental Republic of Uruguay",
+      "República Oriental del Uruguay"
+    ],
+    "capitals": [
+      "Montevideo"
+    ],
+    "continent": "South America",
+    "latlng": [
+      -33,
+      -56
+    ]
+  },
+  {
+    "id": "UZB",
+    "ccn3": "860",
+    "name": "Uzbekistan",
+    "officialName": "Republic of Uzbekistan",
+    "altNames": [
+      "Republic of Uzbekistan",
+      "O‘zbekiston Respublikasi",
+      "Ўзбекистон Республикаси"
+    ],
+    "capitals": [
+      "Tashkent"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      41,
+      64
+    ]
+  },
+  {
+    "id": "VUT",
+    "ccn3": "548",
+    "name": "Vanuatu",
+    "officialName": "Republic of Vanuatu",
+    "altNames": [
+      "Republic of Vanuatu",
+      "Ripablik blong Vanuatu",
+      "République de Vanuatu"
+    ],
+    "capitals": [
+      "Port Vila"
+    ],
+    "continent": "Oceania",
+    "latlng": [
+      -16,
+      167
+    ]
+  },
+  {
+    "id": "VAT",
+    "ccn3": "336",
+    "name": "Vatican City",
+    "officialName": "Vatican City State",
+    "altNames": [
+      "Holy See (Vatican City State)",
+      "Vatican City State",
+      "Vatican",
+      "Stato della Città del Vaticano"
+    ],
+    "capitals": [
+      "Vatican City"
+    ],
+    "continent": "Europe",
+    "latlng": [
+      41.9,
+      12.45
+    ]
+  },
+  {
+    "id": "VEN",
+    "ccn3": "862",
+    "name": "Venezuela",
+    "officialName": "Bolivarian Republic of Venezuela",
+    "altNames": [
+      "Bolivarian Republic of Venezuela",
+      "Venezuela, Bolivarian Republic of",
+      "República Bolivariana de Venezuela"
+    ],
+    "capitals": [
+      "Caracas"
+    ],
+    "continent": "South America",
+    "latlng": [
+      8,
+      -66
+    ]
+  },
+  {
+    "id": "VNM",
+    "ccn3": "704",
+    "name": "Vietnam",
+    "officialName": "Socialist Republic of Vietnam",
+    "altNames": [
+      "Socialist Republic of Vietnam",
+      "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+      "Viet Nam"
+    ],
+    "capitals": [
+      "Hanoi"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      16.16666666,
+      107.83333333
+    ]
+  },
+  {
+    "id": "YEM",
+    "ccn3": "887",
+    "name": "Yemen",
+    "officialName": "Republic of Yemen",
+    "altNames": [
+      "Yemeni Republic",
+      "al-Jumhūriyyah al-Yamaniyyah"
+    ],
+    "capitals": [
+      "Sana'a"
+    ],
+    "continent": "Asia",
+    "latlng": [
+      15,
+      48
+    ]
+  },
+  {
+    "id": "ZMB",
+    "ccn3": "894",
+    "name": "Zambia",
+    "officialName": "Republic of Zambia",
+    "altNames": [
+      "Republic of Zambia"
+    ],
+    "capitals": [
+      "Lusaka"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -15,
+      30
+    ]
+  },
+  {
+    "id": "ZWE",
+    "ccn3": "716",
+    "name": "Zimbabwe",
+    "officialName": "Republic of Zimbabwe",
+    "altNames": [
+      "Republic of Zimbabwe"
+    ],
+    "capitals": [
+      "Harare"
+    ],
+    "continent": "Africa",
+    "latlng": [
+      -20,
+      30
+    ]
+  }
+]
