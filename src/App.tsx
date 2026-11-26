@@ -11,7 +11,9 @@ const BY_ID = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]))
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, loadSaved(), initialState)
-  const [focusId, setFocusId] = useState<string | null>(null)
+  // The nonce makes re-selecting the same country re-focus it after a pan.
+  const [focus, setFocus] = useState<{ id: string; n: number } | null>(null)
+  const focusOn = (id: string) => setFocus((f) => ({ id, n: (f?.n ?? 0) + 1 }))
   const [open, setOpen] = useState(true)
   const [flashId, setFlashId] = useState<string | null>(null)
 
@@ -34,6 +36,7 @@ export default function App() {
     return s === 'found' || s === 'missed' ? c.name : null
   }
   const onCountryClick = (id: string) => {
+    if (state.mode === 'explore') return focusOn(id)
     const s = status(id)
     if (s === 'pending' || s === 'target') dispatch({ type: 'clicked', id })
   }
@@ -45,7 +48,8 @@ export default function App() {
         scope={state.scope}
         statusOf={status}
         continentOf={(id) => BY_ID[id].continent}
-        focusId={focusId}
+        focusId={focus?.id ?? null}
+        focusNonce={focus?.n}
         onCountryClick={onCountryClick}
         tooltip={tooltip}
         interactive={state.mode !== 'type'}
@@ -55,7 +59,7 @@ export default function App() {
         <button className="collapse" onClick={() => setOpen(!open)}>
           {open ? 'Hide' : 'Show'}
         </button>
-        {open && <SidePanel state={state} dispatch={dispatch} onFocus={setFocusId} />}
+        {open && <SidePanel state={state} dispatch={dispatch} onFocus={focusOn} focusId={focus?.id} />}
       </aside>
     </div>
   )

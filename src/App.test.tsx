@@ -64,6 +64,7 @@ describe('App', () => {
   })
 
   it('Reset clears the scope', async () => {
+    vi.spyOn(window, 'confirm').mockReturnValue(true)
     const u = userEvent.setup()
     render(<App />)
     await u.type(input(), 'brazil{Enter}')
@@ -111,6 +112,48 @@ describe('App', () => {
     await u.type(input(), 'brazil{Enter}')
     expect(container.querySelector('[aria-live="polite"]')).toBe(live)
     expect(live.textContent).toBe('Brazil is in South America')
+  })
+})
+
+describe('App guards and fixes', () => {
+  afterEach(() => vi.restoreAllMocks())
+
+  it('Reset asks first: cancel keeps progress, OK clears it', async () => {
+    const confirm = vi.spyOn(window, 'confirm').mockReturnValue(false)
+    const u = userEvent.setup()
+    render(<App />)
+    await u.type(input(), 'brazil{Enter}')
+    await u.click(screen.getByRole('button', { name: 'Reset' }))
+    expect(foundCount('World')).toBe(1)
+    confirm.mockReturnValue(true)
+    await u.click(screen.getByRole('button', { name: 'Reset' }))
+    expect(foundCount('World')).toBe(0)
+  })
+
+  it('R10: a reloaded click-mode save gets a target', () => {
+    localStorage.setItem(
+      'world-quiz:v1',
+      JSON.stringify({ mode: 'click', scope: 'World', progress: { type: { found: [], missed: [] }, click: { found: [], missed: [] } } }),
+    )
+    render(<App />)
+    expect(screen.getByTestId('click-prompt').textContent).toBeTruthy()
+  })
+
+  it('R12: type mode hides names until found', async () => {
+    const u = userEvent.setup()
+    const { container } = render(<App />)
+    const bra = () => container.querySelector('[data-id="BRA"]')!
+    expect(bra().getAttribute('aria-label')).toBe('country')
+    await u.type(input(), 'brazil{Enter}')
+    expect(bra().getAttribute('aria-label')).toBe('Brazil')
+  })
+
+  it('explore: clicking a country shows its name and capital', async () => {
+    const u = userEvent.setup()
+    const { container } = render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Explore' }))
+    click(container, 'BRA')
+    expect(screen.getByTestId('explore-focus').textContent).toBe('Brazil · Brasília')
   })
 })
 

@@ -8,7 +8,7 @@ export function ClickPrompt({ targetName, triesLeft }: ClickPromptProps) {
   return (
     <div className="click-prompt">
       Find: <strong data-testid="click-prompt">{targetName}</strong>
-      <small> ({triesLeft} tries)</small>
+      <small> ({triesLeft} {triesLeft === 1 ? 'try' : 'tries'})</small>
     </div>
   )
 }

@@ -31,6 +31,10 @@ export function TypeBox({ index, onMatch }: TypeBoxProps) {
     <div className="typebox">
       <input
         autoFocus
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck={false}
         className={shake ? 'shake' : undefined}
         value={value}
         placeholder="Type a country"
@@ -46,7 +50,7 @@ export function TypeBox({ index, onMatch }: TypeBoxProps) {
           }
         }}
       />
-      {unknown && <div className="not-recognised">Not recognised</div>}
+      {unknown && <div className="not-recognised" role="alert">Not recognised</div>}
     </div>
   )
 }

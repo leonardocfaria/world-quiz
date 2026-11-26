@@ -9,6 +9,7 @@ export interface SidePanelProps {
   state: QuizState
   dispatch: (a: QuizAction) => void
   onFocus: (id: string) => void
+  focusId?: string | null
 }
 
 const NAME_INDEX = buildNameIndex(COUNTRIES, ALIASES)
@@ -21,13 +22,13 @@ const MODES: [Mode, string][] = [
 const SCOPES: Scope[] = ['World', ...CONTINENTS]
 const CONTINENT_VAR = (c: string) => `var(--c-${c.toLowerCase().replace(' ', '-')})`
 
-function feedbackText(f: Feedback): string {
+function feedbackText(f: Feedback, missed: boolean): string {
   const name = BY_ID[f.id].name
   switch (f.kind) {
     case 'correct':
       return `✓ ${name}`
     case 'already':
-      return `Already found: ${name}`
+      return `Already ${missed ? 'missed' : 'found'}: ${name}`
     case 'other-scope':
       return `${name} is in ${f.continent}`
     case 'wrong-click':
@@ -37,7 +38,7 @@ function feedbackText(f: Feedback): string {
   }
 }
 
-export function SidePanel({ state, dispatch, onFocus }: SidePanelProps) {
+export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps) {
   const { mode, scope } = state
   const quiz = mode !== 'explore'
   const p = quiz ? state.progress[mode] : null
@@ -48,7 +49,16 @@ export function SidePanel({ state, dispatch, onFocus }: SidePanelProps) {
   const complete = quiz && pendingIn(state).length === 0
   const actions = (
     <div className="actions">
-      {quiz && <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>}
+      {quiz && (
+        <button
+          onClick={() => {
+            if (foundHere + missedHere > 0 && !window.confirm(`Reset ${scope}? Your progress here will be cleared.`)) return
+            dispatch({ type: 'reset' })
+          }}
+        >
+          Reset
+        </button>
+      )}
       {quiz && !complete && <button onClick={() => dispatch({ type: 'giveUp' })}>Give up</button>}
       {missedHere > 0 && <button onClick={() => dispatch({ type: 'retryMissed' })}>Retry missed</button>}
     </div>
@@ -64,6 +74,11 @@ export function SidePanel({ state, dispatch, onFocus }: SidePanelProps) {
           </button>
         ))}
       </div>
+      {mode === 'explore' && focusId && (
+        <div className="explore-focus" data-testid="explore-focus">
+          {BY_ID[focusId].capitals[0] ? `${BY_ID[focusId].name} · ${BY_ID[focusId].capitals[0]}` : BY_ID[focusId].name}
+        </div>
+      )}
       <div className="scopes" role="tablist">
         {SCOPES.map((s) => (
           <button
@@ -79,14 +94,14 @@ export function SidePanel({ state, dispatch, onFocus }: SidePanelProps) {
       </div>
       {quiz && <progress value={foundHere} max={inScope.length} />}
 
-      {mode === 'type' && <TypeBox index={NAME_INDEX} onMatch={(id) => dispatch({ type: 'typed', id })} />}
+      {mode === 'type' && <TypeBox key={scope} index={NAME_INDEX} onMatch={(id) => dispatch({ type: 'typed', id })} />}
       {mode === 'click' && (
         <ClickPrompt
           targetName={state.target ? BY_ID[state.target].name : null}
           triesLeft={3 - state.wrongTries}
         />
       )}
-      <div className="feedback" aria-live="polite">{state.feedback && feedbackText(state.feedback)}</div>
+      <div className="feedback" aria-live="polite">{state.feedback && feedbackText(state.feedback, !!p?.missed.includes(state.feedback.id))}</div>
 
       {complete ? (
         <div className="summary">

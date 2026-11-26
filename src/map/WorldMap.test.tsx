@@ -45,6 +45,16 @@ describe('WorldMap', () => {
     fireEvent.keyDown(el, { key: ' ' })
     expect(onCountryClick).toHaveBeenCalledTimes(2)
   })
+  it('tiny-country marker has a wide hit circle that fires click', () => {
+    const onCountryClick = vi.fn()
+    const { container } = render(<WorldMap {...props} onCountryClick={onCountryClick} />)
+    const hit = container.querySelectorAll('circle[data-id="VAT"]')
+    expect(hit.length).toBe(1)
+    expect(hit[0].getAttribute('stroke-width')).toBe('22')
+    fireEvent.pointerDown(hit[0], { clientX: 1, clientY: 1 })
+    fireEvent.pointerUp(hit[0], { clientX: 1, clientY: 1 })
+    expect(onCountryClick).toHaveBeenCalledWith('VAT')
+  })
   it('non-interactive shapes have no role', () => {
     const { container } = render(<WorldMap {...props} />)
     expect(container.querySelector('[data-id="BRA"]')?.getAttribute('role')).toBeNull()
