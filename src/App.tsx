@@ -13,10 +13,18 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, loadSaved(), initialState)
   const [focusId, setFocusId] = useState<string | null>(null)
   const [open, setOpen] = useState(true)
+  const [flashId, setFlashId] = useState<string | null>(null)
 
   // A reloaded click-mode save has no target yet; re-dispatching the mode picks one.
   useEffect(() => dispatch({ type: 'setMode', mode: state.mode }), [])
   useEffect(() => save(state), [state.progress, state.mode, state.scope])
+
+  useEffect(() => {
+    if (state.feedback?.kind !== 'wrong-click') return
+    setFlashId(state.feedback.id)
+    const t = window.setTimeout(() => setFlashId(null), 400)
+    return () => window.clearTimeout(t)
+  }, [state.feedback])
 
   const status = (id: string) => statusOf(state, BY_ID[id])
   const tooltip = (id: string) => {
@@ -40,6 +48,8 @@ export default function App() {
         focusId={focusId}
         onCountryClick={onCountryClick}
         tooltip={tooltip}
+        interactive={state.mode !== 'type'}
+        flashId={flashId}
       />
       <aside className={open ? 'panel' : 'panel collapsed'}>
         <button className="collapse" onClick={() => setOpen(!open)}>

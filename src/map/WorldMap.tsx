@@ -15,6 +15,8 @@ export interface WorldMapProps {
   focusId: string | null
   onCountryClick: (id: string) => void
   tooltip: (id: string) => string | null
+  interactive?: boolean
+  flashId?: string | null
 }
 
 const CONTINENT_VAR: Record<Continent, string> = {
@@ -100,6 +102,19 @@ export function WorldMap(p: WorldMapProps) {
           onPointerUp: (e: React.PointerEvent) => {
             if (Math.hypot((e.clientX || 0) - down.current[0], (e.clientY || 0) - down.current[1]) < 4) p.onCountryClick(id)
           },
+          ...(p.interactive
+            ? {
+                role: 'button',
+                tabIndex: 0,
+                onKeyDown: (e: React.KeyboardEvent) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    p.onCountryClick(id)
+                  }
+                },
+              }
+            : {}),
+          className: p.flashId === id ? 'flash' : undefined,
           onPointerMove: (e: React.PointerEvent) => {
             const text = p.tooltip(id)
             setTip(text ? { text, x: e.clientX + 12, y: e.clientY + 12 } : null)

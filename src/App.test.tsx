@@ -98,4 +98,14 @@ describe('App', () => {
     expect(screen.queryByText(/tries left/)).toBeNull()
     expect(foundCount('World')).toBe(1)
   })
+
+  it('explore mode: list items are buttons', async () => {
+    const u = userEvent.setup()
+    render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Explore' }))
+    const b = screen.getByRole('button', { name: 'Brazil' })
+    b.focus()
+    await u.keyboard('{Enter}')
+    expect(b.closest('li')).toBeTruthy()
+  })
 })

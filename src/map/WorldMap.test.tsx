@@ -35,4 +35,18 @@ describe('WorldMap', () => {
     fireEvent.pointerUp(el, { clientX: 30, clientY: 10 })
     expect(onCountryClick).not.toHaveBeenCalled()
   })
+  it('interactive shapes are focusable and Enter/Space click', () => {
+    const onCountryClick = vi.fn()
+    const { container } = render(<WorldMap {...props} interactive onCountryClick={onCountryClick} />)
+    const el = container.querySelector('[data-id="BRA"]')!
+    expect(el.getAttribute('role')).toBe('button')
+    expect(el.getAttribute('tabindex')).toBe('0')
+    fireEvent.keyDown(el, { key: 'Enter' })
+    fireEvent.keyDown(el, { key: ' ' })
+    expect(onCountryClick).toHaveBeenCalledTimes(2)
+  })
+  it('non-interactive shapes have no role', () => {
+    const { container } = render(<WorldMap {...props} />)
+    expect(container.querySelector('[data-id="BRA"]')?.getAttribute('role')).toBeNull()
+  })
 })

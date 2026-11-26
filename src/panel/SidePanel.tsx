@@ -116,10 +116,10 @@ export function SidePanel({ state, dispatch, onFocus }: SidePanelProps) {
                 {shown.map((c) => (
                   <li
                     key={c.id}
-                    style={{ color: quiz ? (p!.found.includes(c.id) ? CONTINENT_VAR(cont) : 'var(--missed)') : undefined }}
-                    onClick={quiz ? undefined : () => onFocus(c.id)}
+                    style={quiz ? ({ '--dot': p!.found.includes(c.id) ? CONTINENT_VAR(cont) : 'var(--missed)' } as React.CSSProperties) : undefined}
+                    data-missed={quiz && !p!.found.includes(c.id) ? '' : undefined}
                   >
-                    {c.name}
+                    {quiz ? c.name : <button onClick={() => onFocus(c.id)}>{c.name}</button>}
                   </li>
                 ))}
               </ul>
