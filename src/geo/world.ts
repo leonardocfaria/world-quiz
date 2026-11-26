@@ -23,13 +23,20 @@ export const TINY_AREA_SR = 2.5e-5 // ≈1,000 km²
 
 export function buildWorld(topology: Topology, countries: Country[]): WorldData {
   const { features } = feature(topology, topology.objects.countries as GeometryCollection)
-  const claimed = new Set<string>() // Ashmore and Cartier shares Australia's id; first shape wins
+  const nameOf = (f: Feature<Geometry>) => (f.properties as { name?: string } | null)?.name
+  // Several features can share a ccn3 (Ashmore and Cartier shares Australia's): prefer the name match, not feature order.
+  const owner = new Map<Feature<Geometry>, string>()
+  for (const c of countries) {
+    const byId = features.filter((f) => c.ccn3 !== null && f.id === c.ccn3)
+    const pick = byId.find((f) => nameOf(f) === c.name) ?? byId[0] ?? features.find((f) => nameOf(f) === c.name)
+    if (pick && !owner.has(pick)) owner.set(pick, c.id)
+  }
+  const usedKeys = new Set<string>()
   const shapes: MapShape[] = features.map((f) => {
-    const name = (f.properties as { name?: string } | null)?.name
-    const free = countries.filter((c) => !claimed.has(c.id))
-    const match = free.find((c) => c.ccn3 !== null && c.ccn3 === f.id) ?? free.find((c) => c.name === name)
-    if (match) claimed.add(match.id)
-    return { key: String(f.id ?? name), countryId: match?.id ?? null, feature: f }
+    const base = String(f.id ?? nameOf(f))
+    const key = usedKeys.has(base) ? `${base}-${nameOf(f)}` : base
+    usedKeys.add(key)
+    return { key, countryId: owner.get(f) ?? null, feature: f }
   })
   const markers: Marker[] = []
   for (const c of countries) {

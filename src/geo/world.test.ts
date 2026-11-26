@@ -31,4 +31,13 @@ describe('WORLD', () => {
     expect(shapeIds).toContain('UNK')
     expect(shapeIds).toContain('TWN')
   })
+
+  it('gives every shape a unique key', () => {
+    expect(new Set(WORLD.shapes.map((s) => s.key)).size).toBe(WORLD.shapes.length)
+  })
+
+  it('gives AUS to the shape named Australia', () => {
+    const aus = WORLD.shapes.find((s) => s.countryId === 'AUS')
+    expect((aus?.feature.properties as { name: string }).name).toBe('Australia')
+  })
 })
