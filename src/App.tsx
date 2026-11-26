@@ -14,6 +14,8 @@ export default function App() {
   // The nonce makes re-selecting the same country re-focus it after a pan.
   const [focus, setFocus] = useState<{ id: string; n: number } | null>(null)
   const focusOn = (id: string) => setFocus((f) => ({ id, n: (f?.n ?? 0) + 1 }))
+  // Explore focus must not leak into quiz modes or survive a scope change.
+  useEffect(() => setFocus(null), [state.mode, state.scope])
   const [open, setOpen] = useState(true)
   const [flashId, setFlashId] = useState<string | null>(null)
 
@@ -48,7 +50,7 @@ export default function App() {
         scope={state.scope}
         statusOf={status}
         continentOf={(id) => BY_ID[id].continent}
-        focusId={focus?.id ?? null}
+        focusId={state.mode === 'explore' ? (focus?.id ?? null) : null}
         focusNonce={focus?.n}
         onCountryClick={onCountryClick}
         tooltip={tooltip}

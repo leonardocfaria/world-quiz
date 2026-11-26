@@ -155,6 +155,18 @@ describe('App guards and fixes', () => {
     click(container, 'BRA')
     expect(screen.getByTestId('explore-focus').textContent).toBe('Brazil · Brasília')
   })
+
+  it('explore focus does not leak into other modes', async () => {
+    const u = userEvent.setup()
+    const { container } = render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Explore' }))
+    click(container, 'BRA')
+    expect(container.querySelector('[data-focused]')).toBeTruthy()
+    await u.click(screen.getByRole('button', { name: 'Click' }))
+    expect(container.querySelector('[data-focused]')).toBeNull()
+    await u.click(screen.getByRole('button', { name: 'Explore' }))
+    expect(screen.queryByTestId('explore-focus')?.textContent ?? '').toBe('')
+  })
 })
 
 describe('SidePanel explore list', () => {

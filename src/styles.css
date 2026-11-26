@@ -22,11 +22,12 @@ body { font: 14px/1.4 var(--sans); color: var(--ink); background: var(--ocean); 
 button, input { font: inherit; color: inherit; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 svg :focus-visible { outline-offset: 0; }
+svg :focus:not(:focus-visible) { outline: none; }
 
 .app { position: relative; height: 100%; display: flex; }
 .app > svg { flex: 1; min-width: 0; height: 100%; }
-[data-id] { transition: fill 250ms; }
-[data-id]:not(.hit):hover { stroke: var(--ink); stroke-width: 1.5px; }
+[data-id], .dot { transition: fill 250ms; }
+[data-id]:not(.hit):hover, .hit:hover + .dot { stroke: var(--ink); stroke-width: 1.5px; }
 [data-id][role='button'] { cursor: pointer; }
 .flash { animation: flash 400ms; }
 @keyframes flash { 0%, 70% { fill: var(--missed); } }

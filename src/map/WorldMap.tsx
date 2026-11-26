@@ -20,6 +20,9 @@ export interface WorldMapProps {
   focusNonce?: number
 }
 
+const HIT_PX = 12
+const DOT_PX = 4
+
 const CONTINENT_VAR: Record<Continent, string> = {
   Africa: '--c-africa',
   Asia: '--c-asia',
@@ -35,6 +38,7 @@ export function WorldMap(p: WorldMapProps) {
   const down = useRef<[number, number]>([0, 0])
   const gRef = useRef<SVGGElement>(null)
   const tipRef = useRef<HTMLDivElement>(null)
+  const kRef = useRef(1)
 
   const { paths, projection } = useMemo(() => {
     const projection = projectionFor(p.scope)
@@ -58,12 +62,23 @@ export function WorldMap(p: WorldMapProps) {
         // Imperative on purpose: React state per zoom tick would re-render every path.
         const g = select(gRef.current)
         g.attr('transform', e.transform.toString())
-        g.selectAll('circle.dot, circle.hit').attr('r', 5 / e.transform.k)
+        kRef.current = e.transform.k
+        setRadii()
       })
+    // Radii are constant on screen: px / (zoom * screen px per viewBox unit). s is 1 where unmeasurable (jsdom).
+    const setRadii = () => {
+      const s = svg.getScreenCTM?.()?.a || svg.clientWidth / MAP_W || 1
+      const g = select(gRef.current)
+      g.selectAll('circle.dot').attr('r', DOT_PX / (kRef.current * s))
+      g.selectAll('circle.hit').attr('r', HIT_PX / (kRef.current * s))
+    }
+    setRadii()
+    window.addEventListener('resize', setRadii)
     zoomRef.current = z
     select(svg).call(z).on('dblclick.zoom', null)
     return () => {
       select(svg).on('.zoom', null)
+      window.removeEventListener('resize', setRadii)
     }
   }, [])
 
@@ -150,8 +165,8 @@ export function WorldMap(p: WorldMapProps) {
             const h = handlers(m.countryId) as Record<string, unknown>
             return (
               <g key={m.countryId}>
-                <circle className={`dot${h.className ? " flash" : ""}`} data-focused={h['data-focused'] as string | undefined} cx={xy[0]} cy={xy[1]} r={5} stroke="var(--border)" strokeWidth={0.5} vectorEffect="non-scaling-stroke" fill={h.fill as string} opacity={h.opacity as number | undefined} pointerEvents="none" />
-                <circle {...h} className="hit" cx={xy[0]} cy={xy[1]} r={5} fill="transparent" stroke="transparent" strokeWidth={22} vectorEffect="non-scaling-stroke" opacity={undefined} />
+                <circle {...h} data-focused={undefined} className="hit" cx={xy[0]} cy={xy[1]} r={HIT_PX} fill="transparent" stroke="none" pointerEvents="all" opacity={undefined} />
+                <circle className={`dot${h.className ? ' flash' : ''}`} data-focused={h['data-focused'] as string | undefined} cx={xy[0]} cy={xy[1]} r={DOT_PX} stroke="var(--border)" strokeWidth={0.5} vectorEffect="non-scaling-stroke" fill={h.fill as string} opacity={h.opacity as number | undefined} pointerEvents="none" />
               </g>
             )
           })}
