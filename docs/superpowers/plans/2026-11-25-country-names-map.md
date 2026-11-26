@@ -36,7 +36,7 @@ Out of scope for phase 1, but the data model leaves room for it: a capitals quiz
 - localStorage key: `world-quiz:v1`.
 - Click mode allows 3 wrong clicks per target, then reveals the answer and counts it as missed.
 - Every commit message ends with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
-- `npm test` (vitest run) and `npx tsc --noEmit` both pass at the end of every task.
+- `npm test` (vitest run) and `npx tsc -b` both pass at the end of every task.
 
 ## Review Focus
 
