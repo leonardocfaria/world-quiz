@@ -1,4 +1,4 @@
-import { COUNTRIES, countriesIn, type Continent, type Country, type Scope } from '../geo/countries'
+import { CONTINENTS, COUNTRIES, countriesIn, type Continent, type Country, type Scope } from '../geo/countries'
 
 export type Mode = 'explore' | 'type' | 'click'
 export type QuizMode = Exclude<Mode, 'explore'>
@@ -32,8 +32,12 @@ export type QuizAction =
 const MAX_TRIES = 3
 
 const emptyProgress = (): Progress => ({ found: [], missed: [] })
-const idsIn = (scope: Scope) => countriesIn(scope).map((c) => c.id)
-const inScope = (scope: Scope, id: string) => idsIn(scope).includes(id)
+const SCOPE_LIST = new Map<Scope, string[]>(
+  (['World', ...CONTINENTS] as Scope[]).map((s) => [s, countriesIn(s).map((c) => c.id)]),
+)
+const SCOPE_SET = new Map<Scope, Set<string>>([...SCOPE_LIST].map(([s, ids]) => [s, new Set(ids)]))
+const idsIn = (scope: Scope) => SCOPE_LIST.get(scope)!
+const inScope = (scope: Scope, id: string) => SCOPE_SET.get(scope)!.has(id)
 
 export function initialState(saved?: Partial<QuizState> | null): QuizState {
   return {
@@ -60,8 +64,11 @@ export function createQuizReducer(random: () => number): (s: QuizState, a: QuizA
   return (s, a) => {
     switch (a.type) {
       case 'setMode':
+        // Same mode is a no-op (no free skip), except a click mode without a target still needs one (App mount).
+        if (a.mode === s.mode && !(a.mode === 'click' && s.target === null)) return s
         return retarget({ ...s, mode: a.mode, feedback: null })
       case 'setScope':
+        if (a.scope === s.scope) return s
         return retarget({ ...s, scope: a.scope, feedback: null })
       case 'typed': {
         if (s.mode !== 'type') return s
@@ -110,8 +117,7 @@ export function createQuizReducer(random: () => number): (s: QuizState, a: QuizA
       case 'reset': {
         if (s.mode === 'explore') return s
         const p = s.progress[s.mode]
-        const ids = idsIn(s.scope)
-        const keep = (list: string[]) => list.filter((id) => !ids.includes(id))
+        const keep = (list: string[]) => list.filter((id) => !inScope(s.scope, id))
         return retarget(
           withProgress(s, s.mode, { found: keep(p.found), missed: keep(p.missed) }, null),
         )
@@ -119,9 +125,8 @@ export function createQuizReducer(random: () => number): (s: QuizState, a: QuizA
       case 'retryMissed': {
         if (s.mode === 'explore') return s
         const p = s.progress[s.mode]
-        const ids = idsIn(s.scope)
         return retarget(
-          withProgress(s, s.mode, { ...p, missed: p.missed.filter((id) => !ids.includes(id)) }, null),
+          withProgress(s, s.mode, { ...p, missed: p.missed.filter((id) => !inScope(s.scope, id)) }, null),
         )
       }
     }

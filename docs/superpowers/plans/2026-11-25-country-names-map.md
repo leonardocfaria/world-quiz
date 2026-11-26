@@ -4,7 +4,7 @@
 
 **Goal:** A good-looking practice site where you learn every country's name on a world map: type names to fill the map (main mode), click the country you're asked for, or explore the map freely, one continent at a time or the whole world, with a reset available at any point.
 
-**Architecture:** A static Vite + React SPA. A one-off script pulls country data from the REST Countries API into a committed JSON snapshot. At runtime that snapshot is joined to Natural Earth shapes (`world-atlas` TopoJSON) and drawn as an SVG with d3-geo, using d3-zoom for pan and zoom. All quiz logic lives in one pure reducer. Progress is saved to localStorage.
+**Architecture:** A static Vite + React SPA. A one-off script copies country data from the world-countries dataset into a committed JSON snapshot. At runtime that snapshot is joined to Natural Earth shapes (`world-atlas` TopoJSON) and drawn as an SVG with d3-geo, using d3-zoom for pan and zoom. All quiz logic lives in one pure reducer. Progress is saved to localStorage.
 
 **Tech Stack:** Vite (react-ts template), React 19, TypeScript, d3-geo, d3-zoom, d3-selection, topojson-client, world-atlas (`countries-50m.json`), Vitest + jsdom + @testing-library/react + @testing-library/user-event.
 
@@ -59,12 +59,12 @@ world-quiz/
   src/geo/countries.ts           Country/Continent/Scope types, COUNTRIES, countriesIn()
   src/geo/world.ts               join TopoJSON features to countries, tiny-country markers
   src/geo/projection.ts          projectionFor(scope, w, h), SCOPE_BOXES
-  src/quiz/match.ts              normalize, name index, prefix check
+  src/quiz/match.ts              normalize, name index
   src/quiz/reducer.ts            QuizState, actions, createQuizReducer, selectors
   src/quiz/storage.ts            loadSaved / save
   src/map/WorldMap.tsx           SVG map, zoom, status colours, markers, tooltip
   src/panel/SidePanel.tsx        mode switch, scope tabs, progress, grouped list
-  src/panel/TypeBox.tsx          input with auto-accept rules
+  src/panel/TypeBox.tsx          input with Enter-to-confirm
   src/panel/ClickPrompt.tsx      "Click: X" + tries left
   src/App.tsx, src/main.tsx, src/styles.css
   tests sit next to the code as *.test.ts(x)

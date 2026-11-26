@@ -22,7 +22,7 @@ describe('saved progress', () => {
   })
 
   it('returns null for wrong types', () => {
-    localStorage.setItem(KEY, '{"progress":{"type":{"found":[1,2]}}}')
+    localStorage.setItem(KEY, '{"mode":"type","scope":"World","progress":{"type":{"found":[1,2],"missed":[]},"click":{"found":[],"missed":[]}}}')
     expect(loadSaved()).toBeNull()
   })
 

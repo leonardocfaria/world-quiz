@@ -19,6 +19,9 @@ function country(id: string, name: string, altNames: string[] = []): Country {
 }
 
 describe('normalize', () => {
+  it('trims before dropping the article', () => {
+    expect(normalize(' the gambia')).toBe('gambia')
+  })
   it('strips accents and punctuation', () => {
     expect(normalize("Côte d'Ivoire")).toBe('cotedivoire')
   })

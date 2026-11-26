@@ -16,6 +16,14 @@ function start(scope: Scope = 'World'): QuizState {
   return reduce(initialState(), { type: 'setScope', scope })
 }
 
+describe('quiz reducer no-ops', () => {
+  it('setScope to the current scope and setMode to the current mode change nothing', () => {
+    const s = reduce(reduce(initialState(), { type: 'setMode', mode: 'click' }), { type: 'setScope', scope: 'Europe' })
+    expect(reduce(s, { type: 'setScope', scope: 'Europe' })).toBe(s)
+    expect(reduce(s, { type: 'setMode', mode: 'click' })).toBe(s)
+  })
+})
+
 describe('quiz reducer', () => {
   it('keeps type and click progress separate, and explore shows the whole scope as found', () => {
     let s = reduce(start(), { type: 'typed', id: 'FRA' })

@@ -2,6 +2,7 @@ import type { Country } from '../geo/countries'
 
 export function normalize(s: string): string {
   return s
+    .trim()
     .normalize('NFD')
     .replace(/\p{M}/gu, '')
     .toLowerCase()
