@@ -2,6 +2,9 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import App from './App'
+import { SidePanel } from './panel/SidePanel'
+import { initialState } from './quiz/reducer'
+import { vi } from 'vitest'
 import { COUNTRIES } from './geo/countries'
 
 beforeEach(() => localStorage.clear())
@@ -99,13 +102,26 @@ describe('App', () => {
     expect(foundCount('World')).toBe(1)
   })
 
-  it('explore mode: list items are buttons', async () => {
+  it('feedback live region exists up front and announces', async () => {
     const u = userEvent.setup()
-    render(<App />)
-    await u.click(screen.getByRole('button', { name: 'Explore' }))
+    const { container } = render(<App />)
+    const live = container.querySelector('[aria-live="polite"]')!
+    expect(live.textContent).toBe('')
+    await u.click(tab('Europe'))
+    await u.type(input(), 'brazil{Enter}')
+    expect(container.querySelector('[aria-live="polite"]')).toBe(live)
+    expect(live.textContent).toBe('Brazil is in South America')
+  })
+})
+
+describe('SidePanel explore list', () => {
+  it('items are buttons and Enter calls onFocus', async () => {
+    const onFocus = vi.fn()
+    render(<SidePanel state={initialState({ mode: 'explore' })} dispatch={() => {}} onFocus={onFocus} />)
     const b = screen.getByRole('button', { name: 'Brazil' })
+    expect(b.tagName).toBe('BUTTON')
     b.focus()
-    await u.keyboard('{Enter}')
-    expect(b.closest('li')).toBeTruthy()
+    await userEvent.setup().keyboard('{Enter}')
+    expect(onFocus).toHaveBeenCalledWith('BRA')
   })
 })

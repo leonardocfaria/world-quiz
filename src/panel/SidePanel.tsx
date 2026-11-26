@@ -86,7 +86,7 @@ export function SidePanel({ state, dispatch, onFocus }: SidePanelProps) {
           triesLeft={3 - state.wrongTries}
         />
       )}
-      {state.feedback && <div className="feedback">{feedbackText(state.feedback)}</div>}
+      <div className="feedback" aria-live="polite">{state.feedback && feedbackText(state.feedback)}</div>
 
       {complete ? (
         <div className="summary">

@@ -102,7 +102,7 @@ export function WorldMap(p: WorldMapProps) {
           onPointerUp: (e: React.PointerEvent) => {
             if (Math.hypot((e.clientX || 0) - down.current[0], (e.clientY || 0) - down.current[1]) < 4) p.onCountryClick(id)
           },
-          ...(p.interactive
+          ...(p.interactive && p.statusOf(id) !== 'out'
             ? {
                 role: 'button',
                 tabIndex: 0,
