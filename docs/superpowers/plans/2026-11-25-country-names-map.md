@@ -20,7 +20,7 @@
    - **Explore**: view every country on the map and in the list, with no quiz.
 4. Reset any time. It clears the current scope in the current mode.
 5. Country set: the 193 UN members plus Vatican, Palestine, Kosovo and Taiwan. **197 in total.**
-6. Data comes from the REST Countries API.
+6. Data comes from the countries dataset behind REST Countries (`world-countries` package), because the free REST Countries API is shut down.
 7. It must not be ugly. A deliberate visual design is part of the work (Task 7).
 
 Out of scope for phase 1, but the data model leaves room for it: a capitals quiz (capitals are already in the snapshot), a cities quiz (REST Countries has no city data, so that phase needs a new source), and dark mode.
@@ -28,7 +28,7 @@ Out of scope for phase 1, but the data model leaves room for it: a capitals quiz
 ## Global Constraints
 
 - Project folder: `C:\Users\leofa\Desktop\Projects\world-quiz`, with its **own** `git init`. Never commit into the parent `Projects` repo, which has unrelated pending deletions.
-- Data endpoint: `https://restcountries.com/v3.1/all?fields=name,cca3,ccn3,capital,region,subregion,latlng,unMember,altSpellings` (v3.1 allows at most 10 fields).
+- Data source: the `world-countries` npm package (devDependency), file `world-countries/countries.json` (the mledoze/countries dataset REST Countries was built on; same field names). REST Countries v3.1 is shut down and v5 needs an API key (found 2026-11-25).
 - Included set: `unMember === true` OR `cca3` ∈ `["VAT","PSE","UNK","TWN"]`. Exactly **197**.
 - Continents: `Africa`, `Asia`, `Europe`, `North America`, `South America`, `Oceania`. Region `Americas` becomes `South America` when `subregion === "South America"`; every other `Americas` country is `North America`. All other regions map 1:1.
 - The country `id` is `cca3` everywhere (state, storage, props).
