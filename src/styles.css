@@ -27,6 +27,8 @@ svg :focus:not(:focus-visible) { outline: none; }
 .app { position: relative; height: 100%; display: flex; }
 .app > svg { flex: 1; min-width: 0; height: 100%; }
 [data-id], .dot { transition: fill 250ms; }
+/* Microstate dots sit on same-coloured land (Vatican on Italy): a dark ring keeps them visible. */
+.dot { stroke: var(--ink); stroke-width: 1px; }
 [data-id]:not(.hit):hover, .hit:hover + .dot { stroke: var(--ink); stroke-width: 1.5px; }
 [data-id][role='button'] { cursor: pointer; }
 .flash { animation: flash 400ms; }
