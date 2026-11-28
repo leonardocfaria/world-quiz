@@ -37,3 +37,27 @@ describe('saved progress', () => {
     expect(() => save(initialState())).not.toThrow()
   })
 })
+
+describe('flag progress storage', () => {
+  it('loads a phase 1 save and starts flag progress empty', () => {
+    localStorage.setItem(KEY, '{"mode":"type","scope":"World","progress":{"type":{"found":["FRA"],"missed":[]},"click":{"found":[],"missed":["BRA"]}}}')
+    expect(loadSaved()?.progress).toEqual({
+      type: { found: ['FRA'], missed: [] },
+      click: { found: [], missed: ['BRA'] },
+      flagType: { found: [], missed: [] },
+      flagMap: { found: [], missed: [] },
+    })
+  })
+
+  it('save then load keeps flag mode and flag progress', () => {
+    const s = { ...initialState(), mode: 'flagMap' as const }
+    s.progress.flagType.found = ['JPN']
+    save(s)
+    expect(loadSaved()).toEqual({ mode: 'flagMap', scope: 'World', progress: s.progress })
+  })
+
+  it('invalid flag progress returns null', () => {
+    localStorage.setItem(KEY, '{"mode":"type","scope":"World","progress":{"type":{"found":[],"missed":[]},"click":{"found":[],"missed":[]},"flagType":{"found":[1],"missed":[]}}}')
+    expect(loadSaved()).toBeNull()
+  })
+})

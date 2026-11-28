@@ -1,8 +1,8 @@
 import { CONTINENTS } from '../geo/countries'
-import type { Mode, QuizMode, QuizState } from './reducer'
+import type { Mode, Progress, QuizMode, QuizState } from './reducer'
 
 const KEY = 'world-quiz:v1'
-const MODES: Mode[] = ['explore', 'type', 'click']
+const MODES: Mode[] = ['explore', 'type', 'click', 'flagLearn', 'flagType', 'flagMap']
 
 type Saved = Pick<QuizState, 'mode' | 'scope' | 'progress'>
 
@@ -18,17 +18,18 @@ export function loadSaved(): Saved | null {
     if (!MODES.includes(d.mode)) return null
     if (d.scope !== 'World' && !CONTINENTS.includes(d.scope)) return null
     const p = d.progress
-    const valid = (m: QuizMode) =>
-      isIdList(p?.[m]?.found) && isIdList(p?.[m]?.missed)
-    if (!valid('type') || !valid('click')) return null
-    return {
-      mode: d.mode,
-      scope: d.scope,
-      progress: {
-        type: { found: p.type.found, missed: p.type.missed },
-        click: { found: p.click.found, missed: p.click.missed },
-      },
+    // Flag progress is optional in older saves; if present it must be valid.
+    const read = (m: QuizMode): Progress | null => {
+      if (p?.[m] === undefined && (m === 'flagType' || m === 'flagMap')) return { found: [], missed: [] }
+      if (!isIdList(p?.[m]?.found) || !isIdList(p?.[m]?.missed)) return null
+      return { found: p[m].found, missed: p[m].missed }
     }
+    const type = read('type')
+    const click = read('click')
+    const flagType = read('flagType')
+    const flagMap = read('flagMap')
+    if (!type || !click || !flagType || !flagMap) return null
+    return { mode: d.mode, scope: d.scope, progress: { type, click, flagType, flagMap } }
   } catch {
     return null
   }

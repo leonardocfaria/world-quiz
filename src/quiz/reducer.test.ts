@@ -4,6 +4,7 @@ import {
   createQuizReducer,
   initialState,
   pendingIn,
+  sectionOf,
   statusOf,
   type QuizState,
 } from './reducer'
@@ -187,5 +188,72 @@ describe('quiz reducer', () => {
     expect(s.target).toBeNull()
     expect(s.mode).toBe('click')
     expect(s.scope).toBe('Europe')
+  })
+})
+
+describe('flag modes', () => {
+  it('flagType: typing the target finds it and picks the next target', () => {
+    let s = reduce(start('Europe'), { type: 'setMode', mode: 'flagType' })
+    const [first, second] = idsIn('Europe')
+    expect(s.target).toBe(first)
+    s = reduce(s, { type: 'typed', id: first })
+    expect(s.progress.flagType.found).toEqual([first])
+    expect(s.feedback).toEqual({ kind: 'correct', id: first })
+    expect(s.target).toBe(second)
+    expect(s.progress.type.found).toEqual([])
+  })
+
+  it('flagType: wrong countries cost tries and the third reveals', () => {
+    let s = reduce(start('Europe'), { type: 'setMode', mode: 'flagType' })
+    const target = s.target!
+    s = reduce(s, { type: 'typed', id: 'BRA' })
+    expect(s.feedback).toEqual({ kind: 'wrong-name', id: 'BRA', triesLeft: 2 })
+    s = reduce(s, { type: 'typed', id: 'BRA' })
+    s = reduce(s, { type: 'typed', id: 'BRA' })
+    expect(s.progress.flagType.missed).toEqual([target])
+    expect(s.feedback).toEqual({ kind: 'revealed', id: target })
+    expect(s.wrongTries).toBe(0)
+  })
+
+  it('flagMap: clicks count in flagMap progress only', () => {
+    let s = reduce(start('Europe'), { type: 'setMode', mode: 'flagMap' })
+    const target = s.target!
+    s = reduce(s, { type: 'clicked', id: target })
+    expect(s.progress.flagMap.found).toEqual([target])
+    expect(s.progress.click.found).toEqual([])
+  })
+
+  it('reveal marks the target missed in target modes and is a no-op elsewhere', () => {
+    const flag = reduce(start('Europe'), { type: 'setMode', mode: 'flagType' })
+    const target = flag.target!
+    const after = reduce(flag, { type: 'reveal' })
+    expect(after.progress.flagType.missed).toEqual([target])
+    expect(after.feedback).toEqual({ kind: 'revealed', id: target })
+    expect(after.target).not.toBe(target)
+    for (const mode of ['type', 'explore', 'flagLearn'] as const) {
+      const s = reduce(start('Europe'), { type: 'setMode', mode })
+      expect(reduce(s, { type: 'reveal' })).toBe(s)
+    }
+  })
+
+  it('flagLearn is like explore', () => {
+    const s = reduce(start('Europe'), { type: 'setMode', mode: 'flagLearn' })
+    for (const id of idsIn('Europe')) expect(statusOf(s, country(id))).toBe('found')
+    expect(pendingIn(s)).toEqual([])
+    expect(reduce(s, { type: 'giveUp' })).toBe(s)
+    expect(reduce(s, { type: 'reset' })).toBe(s)
+  })
+
+  it('setMode to each target mode picks a target', () => {
+    for (const mode of ['click', 'flagType', 'flagMap'] as const) {
+      expect(reduce(start('Europe'), { type: 'setMode', mode }).target).not.toBeNull()
+    }
+  })
+
+  it('sectionOf maps flag modes to flags and the rest to names', () => {
+    expect(sectionOf('flagLearn')).toBe('flags')
+    expect(sectionOf('flagType')).toBe('flags')
+    expect(sectionOf('flagMap')).toBe('flags')
+    for (const m of ['type', 'click', 'explore'] as const) expect(sectionOf(m)).toBe('names')
   })
 })

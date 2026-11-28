@@ -1,7 +1,7 @@
 import { CONTINENTS, COUNTRIES, countriesIn, type Scope } from '../geo/countries'
 import { ALIASES } from '../data/aliases'
 import { buildNameIndex } from '../quiz/match'
-import { pendingIn, type Feedback, type Mode, type QuizAction, type QuizState } from '../quiz/reducer'
+import { isQuizMode, pendingIn, type Feedback, type Mode, type QuizAction, type QuizState } from '../quiz/reducer'
 import { ClickPrompt } from './ClickPrompt'
 import { TypeBox } from './TypeBox'
 
@@ -33,6 +33,8 @@ function feedbackText(f: Feedback, missed: boolean): string {
       return `${name} is in ${f.continent}`
     case 'wrong-click':
       return `That's ${name}. ${f.triesLeft} ${f.triesLeft === 1 ? 'try' : 'tries'} left`
+    case 'wrong-name':
+      return `Not ${name}. ${f.triesLeft} ${f.triesLeft === 1 ? 'try' : 'tries'} left`
     case 'revealed':
       return `It was ${name}`
   }
@@ -40,8 +42,8 @@ function feedbackText(f: Feedback, missed: boolean): string {
 
 export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps) {
   const { mode, scope } = state
-  const quiz = mode !== 'explore'
-  const p = quiz ? state.progress[mode] : null
+  const quiz = isQuizMode(mode)
+  const p = isQuizMode(mode) ? state.progress[mode] : null
   const inScope = countriesIn(scope)
   const done = (s: Scope) => (p ? countriesIn(s).filter((c) => p.found.includes(c.id)).length : 0)
   const foundHere = done(scope)

@@ -1,7 +1,9 @@
 import { CONTINENTS, COUNTRIES, countriesIn, type Continent, type Country, type Scope } from '../geo/countries'
 
-export type Mode = 'explore' | 'type' | 'click'
-export type QuizMode = Exclude<Mode, 'explore'>
+export type Mode = 'explore' | 'type' | 'click' | 'flagLearn' | 'flagType' | 'flagMap'
+export type QuizMode = 'type' | 'click' | 'flagType' | 'flagMap'
+type TargetMode = 'click' | 'flagType' | 'flagMap'
+export type Section = 'names' | 'flags'
 export interface Progress {
   found: string[]
   missed: string[]
@@ -11,6 +13,7 @@ export type Feedback =
   | { kind: 'already'; id: string }
   | { kind: 'other-scope'; id: string; continent: Continent }
   | { kind: 'wrong-click'; id: string; triesLeft: number }
+  | { kind: 'wrong-name'; id: string; triesLeft: number }
   | { kind: 'revealed'; id: string }
 export interface QuizState {
   mode: Mode
@@ -25,11 +28,19 @@ export type QuizAction =
   | { type: 'setScope'; scope: Scope }
   | { type: 'typed'; id: string }
   | { type: 'clicked'; id: string }
+  | { type: 'reveal' }
   | { type: 'giveUp' }
   | { type: 'reset' }
   | { type: 'retryMissed' }
 
 const MAX_TRIES = 3
+
+export const isQuizMode = (m: Mode): m is QuizMode =>
+  m === 'type' || m === 'click' || m === 'flagType' || m === 'flagMap'
+const isTargetMode = (m: Mode): m is TargetMode =>
+  m === 'click' || m === 'flagType' || m === 'flagMap'
+export const sectionOf = (m: Mode): Section =>
+  m === 'flagLearn' || m === 'flagType' || m === 'flagMap' ? 'flags' : 'names'
 
 const emptyProgress = (): Progress => ({ found: [], missed: [] })
 const SCOPE_LIST = new Map<Scope, string[]>(
@@ -43,7 +54,13 @@ export function initialState(saved?: Partial<QuizState> | null): QuizState {
   return {
     mode: saved?.mode ?? 'type',
     scope: saved?.scope ?? 'World',
-    progress: { type: emptyProgress(), click: emptyProgress(), ...saved?.progress },
+    progress: {
+      type: emptyProgress(),
+      click: emptyProgress(),
+      flagType: emptyProgress(),
+      flagMap: emptyProgress(),
+      ...saved?.progress,
+    },
     target: null,
     wrongTries: 0,
     feedback: null,
@@ -51,26 +68,52 @@ export function initialState(saved?: Partial<QuizState> | null): QuizState {
 }
 
 export function createQuizReducer(random: () => number): (s: QuizState, a: QuizAction) => QuizState {
-  // Only click mode has a target. A new target is picked from the pending ids.
+  // Target modes pick a new target from the pending ids.
   const retarget = (s: QuizState): QuizState => {
     const pending = pendingIn(s)
     const target =
-      s.mode === 'click' && pending.length > 0
+      isTargetMode(s.mode) && pending.length > 0
         ? pending[Math.floor(random() * pending.length)]
         : null
     return { ...s, target, wrongTries: 0 }
   }
 
+  // Shared by typed (flagType) and clicked: the 3rd wrong try misses the target.
+  const wrongTry = (
+    s: QuizState,
+    mode: QuizMode,
+    target: string,
+    id: string,
+    kind: 'wrong-click' | 'wrong-name',
+  ): QuizState => {
+    const wrongTries = s.wrongTries + 1
+    const triesLeft = MAX_TRIES - wrongTries
+    if (triesLeft > 0) return { ...s, wrongTries, feedback: { kind, id, triesLeft } }
+    const p = s.progress[mode]
+    return retarget(
+      withProgress(s, mode, { ...p, missed: [...p.missed, target] }, { kind: 'revealed', id: target }),
+    )
+  }
+
   return (s, a) => {
     switch (a.type) {
       case 'setMode':
-        // Same mode is a no-op (no free skip), except a click mode without a target still needs one (App mount).
-        if (a.mode === s.mode && !(a.mode === 'click' && s.target === null)) return s
+        // Same mode is a no-op (no free skip), except a target mode without a target still needs one (App mount).
+        if (a.mode === s.mode && !(isTargetMode(a.mode) && s.target === null)) return s
         return retarget({ ...s, mode: a.mode, feedback: null })
       case 'setScope':
         if (a.scope === s.scope) return s
         return retarget({ ...s, scope: a.scope, feedback: null })
       case 'typed': {
+        if (s.mode === 'flagType') {
+          const target = s.target
+          if (target === null) return s
+          if (a.id !== target) return wrongTry(s, 'flagType', target, a.id, 'wrong-name')
+          const p = s.progress.flagType
+          return retarget(
+            withProgress(s, 'flagType', { ...p, found: [...p.found, target] }, { kind: 'correct', id: target }),
+          )
+        }
         if (s.mode !== 'type') return s
         const country = COUNTRIES.find((c) => c.id === a.id)
         if (!country) return s
@@ -87,26 +130,30 @@ export function createQuizReducer(random: () => number): (s: QuizState, a: QuizA
         })
       }
       case 'clicked': {
-        if (s.mode !== 'click' || s.target === null) return s
+        if (s.mode !== 'click' && s.mode !== 'flagMap') return s
+        if (s.target === null) return s
         if (!inScope(s.scope, a.id)) return s
+        const mode = s.mode
         const target = s.target
-        const p = s.progress.click
+        const p = s.progress[mode]
         if (a.id === target) {
           return retarget(
-            withProgress(s, 'click', { ...p, found: [...p.found, target] }, { kind: 'correct', id: target }),
+            withProgress(s, mode, { ...p, found: [...p.found, target] }, { kind: 'correct', id: target }),
           )
         }
-        const wrongTries = s.wrongTries + 1
-        const triesLeft = MAX_TRIES - wrongTries
-        if (triesLeft > 0) {
-          return { ...s, wrongTries, feedback: { kind: 'wrong-click', id: a.id, triesLeft } }
-        }
+        return wrongTry(s, mode, target, a.id, 'wrong-click')
+      }
+      case 'reveal': {
+        if (!isTargetMode(s.mode) || s.target === null) return s
+        const mode = s.mode
+        const target = s.target
+        const p = s.progress[mode]
         return retarget(
-          withProgress(s, 'click', { ...p, missed: [...p.missed, target] }, { kind: 'revealed', id: target }),
+          withProgress(s, mode, { ...p, missed: [...p.missed, target] }, { kind: 'revealed', id: target }),
         )
       }
       case 'giveUp': {
-        if (s.mode === 'explore') return s
+        if (!isQuizMode(s.mode)) return s
         const p = s.progress[s.mode]
         return retarget({
           ...s,
@@ -115,7 +162,7 @@ export function createQuizReducer(random: () => number): (s: QuizState, a: QuizA
         })
       }
       case 'reset': {
-        if (s.mode === 'explore') return s
+        if (!isQuizMode(s.mode)) return s
         const p = s.progress[s.mode]
         const keep = (list: string[]) => list.filter((id) => !inScope(s.scope, id))
         return retarget(
@@ -123,7 +170,7 @@ export function createQuizReducer(random: () => number): (s: QuizState, a: QuizA
         )
       }
       case 'retryMissed': {
-        if (s.mode === 'explore') return s
+        if (!isQuizMode(s.mode)) return s
         const p = s.progress[s.mode]
         return retarget(
           withProgress(s, s.mode, { ...p, missed: p.missed.filter((id) => !inScope(s.scope, id)) }, null),
@@ -137,7 +184,7 @@ export type CountryStatus = 'found' | 'missed' | 'pending' | 'target' | 'out'
 
 export function statusOf(s: QuizState, c: Country): CountryStatus {
   if (!inScope(s.scope, c.id)) return 'out'
-  if (s.mode === 'explore') return 'found'
+  if (!isQuizMode(s.mode)) return 'found'
   const p = s.progress[s.mode]
   if (p.found.includes(c.id)) return 'found'
   if (p.missed.includes(c.id)) return 'missed'
@@ -145,7 +192,7 @@ export function statusOf(s: QuizState, c: Country): CountryStatus {
 }
 
 export function pendingIn(s: QuizState): string[] {
-  if (s.mode === 'explore') return []
+  if (!isQuizMode(s.mode)) return []
   const p = s.progress[s.mode]
   return idsIn(s.scope).filter((id) => !p.found.includes(id) && !p.missed.includes(id))
 }
