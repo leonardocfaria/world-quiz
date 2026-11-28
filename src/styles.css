@@ -57,6 +57,7 @@ button:hover { background: var(--land); border-color: var(--ink); }
 button[aria-pressed='true'], button[aria-selected='true'] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
 
 .modes, .scopes, .actions { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.actions.confirm p { flex-basis: 100%; margin: 0 0 4px; }
 .modes button { flex: 1; }
 .scopes button { font-size: 12px; padding: 4px 10px; border-radius: 999px; }
 

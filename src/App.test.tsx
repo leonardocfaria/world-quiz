@@ -64,11 +64,11 @@ describe('App', () => {
   })
 
   it('Reset clears the scope', async () => {
-    vi.spyOn(window, 'confirm').mockReturnValue(true)
     const u = userEvent.setup()
     render(<App />)
     await u.type(input(), 'brazil{Enter}')
     await u.click(screen.getByRole('button', { name: 'Reset' }))
+    await u.click(screen.getByRole('button', { name: 'Yes, reset' }))
     expect(foundCount('World')).toBe(0)
   })
 
@@ -118,16 +118,21 @@ describe('App', () => {
 describe('App guards and fixes', () => {
   afterEach(() => vi.restoreAllMocks())
 
-  it('Reset asks first: cancel keeps progress, OK clears it', async () => {
-    const confirm = vi.spyOn(window, 'confirm').mockReturnValue(false)
+  it('Reset asks in the page first: Cancel keeps progress, Yes clears it', async () => {
+    // In-page, not window.confirm: embedded browsers can suppress native dialogs (confirm returns false at once).
+    const confirm = vi.spyOn(window, 'confirm')
     const u = userEvent.setup()
     render(<App />)
     await u.type(input(), 'brazil{Enter}')
     await u.click(screen.getByRole('button', { name: 'Reset' }))
+    expect(screen.getByText('Reset World? Your progress here will be cleared.')).toBeTruthy()
     expect(foundCount('World')).toBe(1)
-    confirm.mockReturnValue(true)
+    await u.click(screen.getByRole('button', { name: 'Cancel' }))
+    expect(foundCount('World')).toBe(1)
     await u.click(screen.getByRole('button', { name: 'Reset' }))
+    await u.click(screen.getByRole('button', { name: 'Yes, reset' }))
     expect(foundCount('World')).toBe(0)
+    expect(confirm).not.toHaveBeenCalled()
   })
 
   it('R10: a reloaded click-mode save gets a target', () => {

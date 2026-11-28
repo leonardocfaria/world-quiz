@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { CONTINENTS, COUNTRIES, countriesIn, type Scope } from '../geo/countries'
 import { NAME_INDEX } from '../quiz/match'
 import { isQuizMode, MAX_TRIES, pendingIn, sectionOf, type Mode, type QuizAction, type QuizState } from '../quiz/reducer'
@@ -31,15 +32,26 @@ export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps)
   const foundHere = done(scope)
   const missedHere = p ? inScope.filter((c) => p.missed.includes(c.id)).length : 0
   const complete = quiz && pendingIn(state).length === 0
-  const actions = (
+  // In-page confirm, not window.confirm: embedded browsers can suppress native dialogs. Keyed so a mode/scope switch drops it.
+  const [confirming, setConfirming] = useState<string | null>(null)
+  const here = `${mode}:${scope}`
+  const actions = confirming === here ? (
+    <div className="actions confirm" role="group" aria-label="Confirm reset">
+      <p>Reset {scope}? Your progress here will be cleared.</p>
+      <button
+        onClick={() => {
+          setConfirming(null)
+          dispatch({ type: 'reset' })
+        }}
+      >
+        Yes, reset
+      </button>
+      <button autoFocus onClick={() => setConfirming(null)}>Cancel</button>
+    </div>
+  ) : (
     <div className="actions">
       {quiz && (
-        <button
-          onClick={() => {
-            if (foundHere + missedHere > 0 && !window.confirm(`Reset ${scope}? Your progress here will be cleared.`)) return
-            dispatch({ type: 'reset' })
-          }}
-        >
+        <button onClick={() => (foundHere + missedHere > 0 ? setConfirming(here) : dispatch({ type: 'reset' }))}>
           Reset
         </button>
       )}
