@@ -203,6 +203,16 @@ describe('Flags section', () => {
   })
 })
 
+describe('Flag viewer focus', () => {
+  it('opening a tile focuses the country heading', async () => {
+    const u = userEvent.setup()
+    const { container } = render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Flags' }))
+    await u.click(container.querySelector('[data-tile=FRA]')!)
+    expect(document.activeElement).toBe(container.querySelector('h2'))
+  })
+})
+
 describe('Flag type', () => {
   const targetId = () =>
     (screen.getByAltText('Flag to identify') as HTMLImageElement).src.match(/([a-z]+)\.svg$/)![1].toUpperCase()
@@ -266,6 +276,12 @@ describe('Flag type', () => {
     expect(screen.getByRole('button', { name: 'Retry missed' })).toBeTruthy()
   })
 
+  it("flag type: focus returns to the textbox after I don't know", async () => {
+    const { u } = await start()
+    await u.click(screen.getByRole('button', { name: "I don't know" }))
+    expect(document.activeElement).toBe(input())
+  })
+
   it('flag type progress is separate from names type', async () => {
     const { u } = await start()
     await u.type(input(), `${nameOf(targetId())}{Enter}`)
@@ -312,6 +328,32 @@ describe('Flag map', () => {
     for (const el of container.querySelectorAll('[title], [aria-label]'))
       expect(`${el.getAttribute('title')} ${el.getAttribute('aria-label')}`).not.toContain(n)
     expect((card.querySelector('img') as HTMLImageElement).alt).toBe('Flag to identify')
+  })
+
+  it('flag map: card sits above the map in .map-area; Names click has none', async () => {
+    const { u, container } = await start()
+    const card = container.querySelector('.flag-card')!
+    const svg = container.querySelector('.map-area > svg')!
+    expect(card.parentElement).toBe(svg.parentElement)
+    expect(card.parentElement!.classList.contains('map-area')).toBe(true)
+    expect(card.nextElementSibling).toBe(svg)
+    await u.click(screen.getByRole('button', { name: 'Names' }))
+    await u.click(screen.getByRole('button', { name: 'Click' }))
+    expect(container.querySelector('.map-area')).toBeNull()
+  })
+
+  it('flag map: give up shows the done message', async () => {
+    const { u } = await start()
+    await u.click(screen.getByRole('button', { name: 'Give up' }))
+    expect(screen.getByText('All flags in Europe done.')).toBeTruthy()
+    expect(screen.queryByAltText('Flag to identify')).toBeNull()
+  })
+
+  it("flag map: I don't know reveals the current target", async () => {
+    const { u, container } = await start()
+    const n = nameOf(targetId())
+    await u.click(screen.getByRole('button', { name: "I don't know" }))
+    expect(container.querySelector('.feedback')!.textContent).toContain(`It was ${n}`)
   })
 
   it('names click still uses the side prompt, no flag card', async () => {

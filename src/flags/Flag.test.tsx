@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 import { existsSync, readdirSync } from 'node:fs'

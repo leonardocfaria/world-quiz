@@ -3,6 +3,8 @@ import type { Feedback } from './reducer'
 
 const BY_ID = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]))
 
+export const triesLeft = (n: number) => `${n} ${n === 1 ? 'try' : 'tries'} left`
+
 export function feedbackText(f: Feedback, missed: boolean): string {
   const name = BY_ID[f.id].name
   switch (f.kind) {

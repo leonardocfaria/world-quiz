@@ -33,7 +33,7 @@ export type QuizAction =
   | { type: 'reset' }
   | { type: 'retryMissed' }
 
-const MAX_TRIES = 3
+export const MAX_TRIES = 3
 
 export const isQuizMode = (m: Mode): m is QuizMode =>
   m === 'type' || m === 'click' || m === 'flagType' || m === 'flagMap'

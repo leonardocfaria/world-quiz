@@ -9,6 +9,7 @@ export function FlagGallery({ scope }: { scope: Scope }) {
   const [open, setOpen] = useState<number | null>(null)
   const last = useRef<string | null>(null)
   const root = useRef<HTMLDivElement>(null)
+  const title = useRef<HTMLHeadingElement>(null)
   const isOpen = open !== null
 
   useEffect(() => {
@@ -24,7 +25,10 @@ export function FlagGallery({ scope }: { scope: Scope }) {
   }, [isOpen, n])
 
   useEffect(() => {
-    if (open !== null) last.current = list[open].id
+    if (open !== null) {
+      last.current = list[open].id
+      title.current?.focus()
+    }
     else if (last.current) root.current?.querySelector<HTMLElement>(`[data-tile=${last.current}]`)?.focus()
     // eslint-disable-next-line react-hooks/exhaustive-deps -- list only changes with scope, which remounts
   }, [open])
@@ -34,7 +38,7 @@ export function FlagGallery({ scope }: { scope: Scope }) {
     return (
       <div className="viewer" ref={root}>
         <Flag id={c.id} label={`Flag of ${c.name}`} className="big" />
-        <h2>{c.name}</h2>
+        <h2 ref={title} tabIndex={-1}>{c.name}</h2>
         {c.officialName !== c.name && <div>{c.officialName}</div>}
         <div>Capital: {c.capitals.join(', ')}</div>
         <div>{c.continent}</div>

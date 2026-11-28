@@ -30,7 +30,10 @@ export default function App() {
     if (state.feedback?.kind !== 'wrong-click') return
     setFlashId(state.feedback.id)
     const t = window.setTimeout(() => setFlashId(null), 400)
-    return () => window.clearTimeout(t)
+    return () => {
+      window.clearTimeout(t)
+      setFlashId(null)
+    }
   }, [state.feedback])
 
   const status = (id: string) => statusOf(state, BY_ID[id])
@@ -46,6 +49,21 @@ export default function App() {
     if (s === 'pending' || s === 'target') dispatch({ type: 'clicked', id })
   }
 
+  const map = (
+    <WorldMap
+      world={WORLD}
+      scope={state.scope}
+      statusOf={status}
+      continentOf={(id) => BY_ID[id].continent}
+      focusId={state.mode === 'explore' ? (focus?.id ?? null) : null}
+      focusNonce={focus?.n}
+      onCountryClick={onCountryClick}
+      tooltip={tooltip}
+      interactive={state.mode !== 'type'}
+      flashId={flashId}
+    />
+  )
+
   return (
     <div className="app">
       {state.mode === 'flagLearn' ? (
@@ -57,20 +75,15 @@ export default function App() {
           <FlagQuizStage state={state} dispatch={dispatch} />
         </main>
       ) : (
-      <WorldMap
-        world={WORLD}
-        scope={state.scope}
-        statusOf={status}
-        continentOf={(id) => BY_ID[id].continent}
-        focusId={state.mode === 'explore' ? (focus?.id ?? null) : null}
-        focusNonce={focus?.n}
-        onCountryClick={onCountryClick}
-        tooltip={tooltip}
-        interactive={state.mode !== 'type'}
-        flashId={flashId}
-      />
+        state.mode === 'flagMap' ? (
+          <div className="map-area">
+            <FlagMapCard state={state} dispatch={dispatch} />
+            {map}
+          </div>
+        ) : (
+          map
+        )
       )}
-      {state.mode === 'flagMap' && <FlagMapCard state={state} dispatch={dispatch} />}
       <aside className={open ? 'panel' : 'panel collapsed'}>
         <button className="collapse" onClick={() => setOpen(!open)}>
           {open ? 'Hide' : 'Show'}

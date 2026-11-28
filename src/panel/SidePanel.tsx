@@ -1,6 +1,6 @@
 import { CONTINENTS, COUNTRIES, countriesIn, type Scope } from '../geo/countries'
 import { NAME_INDEX } from '../quiz/match'
-import { isQuizMode, pendingIn, sectionOf, type Mode, type QuizAction, type QuizState } from '../quiz/reducer'
+import { isQuizMode, MAX_TRIES, pendingIn, sectionOf, type Mode, type QuizAction, type QuizState } from '../quiz/reducer'
 import { feedbackText } from '../quiz/feedbackText'
 import { Flag } from '../flags/Flag'
 import { ClickPrompt } from './ClickPrompt'
@@ -93,7 +93,7 @@ export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps)
       {mode === 'click' && (
         <ClickPrompt
           targetName={state.target ? BY_ID[state.target].name : null}
-          triesLeft={3 - state.wrongTries}
+          triesLeft={MAX_TRIES - state.wrongTries}
         />
       )}
       {section === 'names' && (
