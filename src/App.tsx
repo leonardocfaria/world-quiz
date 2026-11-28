@@ -2,6 +2,7 @@ import { useEffect, useReducer, useState } from 'react'
 import { COUNTRIES } from './geo/countries'
 import { WORLD } from './geo/world'
 import { FlagGallery } from './flags/FlagGallery'
+import { FlagMapCard } from './flags/FlagMapCard'
 import { FlagQuizStage } from './flags/FlagQuizStage'
 import { WorldMap } from './map/WorldMap'
 import { SidePanel } from './panel/SidePanel'
@@ -69,6 +70,7 @@ export default function App() {
         flashId={flashId}
       />
       )}
+      {state.mode === 'flagMap' && <FlagMapCard state={state} dispatch={dispatch} />}
       <aside className={open ? 'panel' : 'panel collapsed'}>
         <button className="collapse" onClick={() => setOpen(!open)}>
           {open ? 'Hide' : 'Show'}

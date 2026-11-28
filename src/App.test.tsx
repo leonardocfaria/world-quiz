@@ -273,3 +273,52 @@ describe('Flag type', () => {
     expect(foundCount('Europe')).toBe(0)
   })
 })
+
+describe('Flag map', () => {
+  const targetId = () =>
+    (screen.getByAltText('Flag to identify') as HTMLImageElement).src.match(/([a-z]+)\.svg$/)![1].toUpperCase()
+  const nameOf = (id: string) => COUNTRIES.find((c) => c.id === id)!.name
+  const start = async () => {
+    const u = userEvent.setup()
+    const r = render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Flags' }))
+    await u.click(screen.getByRole('button', { name: 'Map' }))
+    await u.click(tab('Europe'))
+    return { u, ...r }
+  }
+
+  it("flag map: clicking the flag's country counts in Map progress only", async () => {
+    const { u, container } = await start()
+    click(container, targetId())
+    expect(foundCount('Europe')).toBe(1)
+    await u.click(screen.getByRole('button', { name: 'Names' }))
+    await u.click(screen.getByRole('button', { name: 'Click' }))
+    expect(foundCount('Europe')).toBe(0)
+  })
+
+  it('flag map: a wrong click costs a try and names the clicked country', async () => {
+    const { container } = await start()
+    const other = countriesIn('Europe').find((c) => c.id !== targetId())!
+    click(container, other.id)
+    expect(container.querySelector('.feedback')!.textContent).toContain(`That's ${other.name}. 2 tries left`)
+  })
+
+  it('flag map: card never names the target', async () => {
+    const { container } = await start()
+    const n = nameOf(targetId())
+    const card = container.querySelector('.flag-card')!
+    expect(card.textContent).not.toContain(n)
+    expect(container.textContent).not.toContain(n)
+    for (const el of container.querySelectorAll('[title], [aria-label]'))
+      expect(`${el.getAttribute('title')} ${el.getAttribute('aria-label')}`).not.toContain(n)
+    expect((card.querySelector('img') as HTMLImageElement).alt).toBe('Flag to identify')
+  })
+
+  it('names click still uses the side prompt, no flag card', async () => {
+    const u = userEvent.setup()
+    const { container } = render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Click' }))
+    expect(screen.getByTestId('click-prompt')).toBeTruthy()
+    expect(container.querySelector('.flag-card')).toBeNull()
+  })
+})
