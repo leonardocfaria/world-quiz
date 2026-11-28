@@ -5,7 +5,7 @@ import App from './App'
 import { SidePanel } from './panel/SidePanel'
 import { initialState } from './quiz/reducer'
 import { vi } from 'vitest'
-import { COUNTRIES } from './geo/countries'
+import { COUNTRIES, countriesIn } from './geo/countries'
 
 beforeEach(() => localStorage.clear())
 afterEach(cleanup)
@@ -178,5 +178,27 @@ describe('SidePanel explore list', () => {
     b.focus()
     await userEvent.setup().keyboard('{Enter}')
     expect(onFocus).toHaveBeenCalledWith('BRA')
+  })
+})
+
+describe('Flags section', () => {
+  it('Flags opens Learn and Names returns to Type', async () => {
+    const u = userEvent.setup()
+    const { container } = render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Flags' }))
+    expect(container.querySelector('[data-tile]')).toBeTruthy()
+    expect(container.querySelector('svg')).toBeNull()
+    await u.click(screen.getByRole('button', { name: 'Names' }))
+    expect(input()).toBeTruthy()
+  })
+
+  it('scope change in the viewer returns to the grid of the new scope', async () => {
+    const u = userEvent.setup()
+    const { container } = render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Flags' }))
+    await u.click(container.querySelector('[data-tile=FRA]')!)
+    await u.click(tab('Oceania'))
+    expect(container.querySelector('h2')).toBeNull()
+    expect(container.querySelectorAll('[data-tile]').length).toBe(countriesIn('Oceania').length)
   })
 })

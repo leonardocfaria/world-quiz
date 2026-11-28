@@ -1,7 +1,9 @@
 import { CONTINENTS, COUNTRIES, countriesIn, type Scope } from '../geo/countries'
 import { ALIASES } from '../data/aliases'
 import { buildNameIndex } from '../quiz/match'
-import { isQuizMode, pendingIn, type Feedback, type Mode, type QuizAction, type QuizState } from '../quiz/reducer'
+import { isQuizMode, pendingIn, sectionOf, type Mode, type QuizAction, type QuizState } from '../quiz/reducer'
+import { feedbackText } from '../quiz/feedbackText'
+import { Flag } from '../flags/Flag'
 import { ClickPrompt } from './ClickPrompt'
 import { TypeBox } from './TypeBox'
 
@@ -14,35 +16,17 @@ export interface SidePanelProps {
 
 const NAME_INDEX = buildNameIndex(COUNTRIES, ALIASES)
 const BY_ID = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]))
-const MODES: [Mode, string][] = [
-  ['type', 'Type'],
-  ['click', 'Click'],
-  ['explore', 'Explore'],
-]
+const MODES: Record<'names' | 'flags', [Mode, string][]> = {
+  names: [['type', 'Type'], ['click', 'Click'], ['explore', 'Explore']],
+  flags: [['flagLearn', 'Learn'], ['flagType', 'Type'], ['flagMap', 'Map']],
+}
 const SCOPES: Scope[] = ['World', ...CONTINENTS]
 const CONTINENT_VAR = (c: string) => `var(--c-${c.toLowerCase().replace(' ', '-')})`
-
-function feedbackText(f: Feedback, missed: boolean): string {
-  const name = BY_ID[f.id].name
-  switch (f.kind) {
-    case 'correct':
-      return `✓ ${name}`
-    case 'already':
-      return `Already ${missed ? 'missed' : 'found'}: ${name}`
-    case 'other-scope':
-      return `${name} is in ${f.continent}`
-    case 'wrong-click':
-      return `That's ${name}. ${f.triesLeft} ${f.triesLeft === 1 ? 'try' : 'tries'} left`
-    case 'wrong-name':
-      return `Not ${name}. ${f.triesLeft} ${f.triesLeft === 1 ? 'try' : 'tries'} left`
-    case 'revealed':
-      return `It was ${name}`
-  }
-}
 
 export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps) {
   const { mode, scope } = state
   const quiz = isQuizMode(mode)
+  const section = sectionOf(mode)
   const p = isQuizMode(mode) ? state.progress[mode] : null
   const inScope = countriesIn(scope)
   const done = (s: Scope) => (p ? countriesIn(s).filter((c) => p.found.includes(c.id)).length : 0)
@@ -69,8 +53,19 @@ export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps)
 
   return (
     <div className="panel-body">
+      <div className="sections">
+        {([['names', 'Names', 'type'], ['flags', 'Flags', 'flagLearn']] as const).map(([sec, label, first]) => (
+          <button
+            key={sec}
+            aria-pressed={section === sec}
+            onClick={() => section !== sec && dispatch({ type: 'setMode', mode: first })}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
       <div className="modes">
-        {MODES.map(([m, label]) => (
+        {MODES[section].map(([m, label]) => (
           <button key={m} aria-pressed={mode === m} onClick={() => dispatch({ type: 'setMode', mode: m })}>
             {label}
           </button>
@@ -96,14 +91,16 @@ export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps)
       </div>
       {quiz && <progress value={foundHere} max={inScope.length} />}
 
-      {mode === 'type' && <TypeBox key={scope} index={NAME_INDEX} onMatch={(id) => dispatch({ type: 'typed', id })} />}
+      {section === 'names' && mode === 'type' && <TypeBox key={scope} index={NAME_INDEX} onMatch={(id) => dispatch({ type: 'typed', id })} />}
       {mode === 'click' && (
         <ClickPrompt
           targetName={state.target ? BY_ID[state.target].name : null}
           triesLeft={3 - state.wrongTries}
         />
       )}
-      <div className="feedback" aria-live="polite">{state.feedback && feedbackText(state.feedback, !!p?.missed.includes(state.feedback.id))}</div>
+      {section === 'names' && (
+        <div className="feedback" aria-live="polite">{state.feedback && feedbackText(state.feedback, !!p?.missed.includes(state.feedback.id))}</div>
+      )}
 
       {complete ? (
         <div className="summary">
@@ -116,7 +113,7 @@ export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps)
         actions
       )}
 
-      <div className="list">
+      {mode !== 'flagLearn' && <div className="list">
         {continents.map((cont) => {
           const cs = countriesIn(cont)
           const shown = quiz
@@ -136,6 +133,7 @@ export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps)
                     style={quiz ? ({ '--dot': p!.found.includes(c.id) ? CONTINENT_VAR(cont) : 'var(--missed)' } as React.CSSProperties) : undefined}
                     data-missed={quiz && !p!.found.includes(c.id) ? '' : undefined}
                   >
+                    {section === 'flags' && <Flag id={c.id} label="" className="mini" />}
                     {quiz ? c.name : <button onClick={() => onFocus(c.id)}>{c.name}</button>}
                   </li>
                 ))}
@@ -144,7 +142,7 @@ export function SidePanel({ state, dispatch, onFocus, focusId }: SidePanelProps)
             </section>
           )
         })}
-      </div>
+      </div>}
     </div>
   )
 }

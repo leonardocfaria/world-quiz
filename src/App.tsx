@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useState } from 'react'
 import { COUNTRIES } from './geo/countries'
 import { WORLD } from './geo/world'
+import { FlagGallery } from './flags/FlagGallery'
 import { WorldMap } from './map/WorldMap'
 import { SidePanel } from './panel/SidePanel'
 import { createQuizReducer, initialState, statusOf } from './quiz/reducer'
@@ -45,6 +46,11 @@ export default function App() {
 
   return (
     <div className="app">
+      {state.mode === 'flagLearn' ? (
+        <main className="stage">
+          <FlagGallery key={state.scope} scope={state.scope} />
+        </main>
+      ) : (
       <WorldMap
         world={WORLD}
         scope={state.scope}
@@ -57,6 +63,7 @@ export default function App() {
         interactive={state.mode !== 'type'}
         flashId={flashId}
       />
+      )}
       <aside className={open ? 'panel' : 'panel collapsed'}>
         <button className="collapse" onClick={() => setOpen(!open)}>
           {open ? 'Hide' : 'Show'}
