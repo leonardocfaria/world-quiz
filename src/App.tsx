@@ -2,6 +2,7 @@ import { useEffect, useReducer, useState } from 'react'
 import { COUNTRIES } from './geo/countries'
 import { WORLD } from './geo/world'
 import { FlagGallery } from './flags/FlagGallery'
+import { FlagQuizStage } from './flags/FlagQuizStage'
 import { WorldMap } from './map/WorldMap'
 import { SidePanel } from './panel/SidePanel'
 import { createQuizReducer, initialState, statusOf } from './quiz/reducer'
@@ -49,6 +50,10 @@ export default function App() {
       {state.mode === 'flagLearn' ? (
         <main className="stage">
           <FlagGallery key={state.scope} scope={state.scope} />
+        </main>
+      ) : state.mode === 'flagType' ? (
+        <main className="stage">
+          <FlagQuizStage state={state} dispatch={dispatch} />
         </main>
       ) : (
       <WorldMap

@@ -1,6 +1,5 @@
 import { CONTINENTS, COUNTRIES, countriesIn, type Scope } from '../geo/countries'
-import { ALIASES } from '../data/aliases'
-import { buildNameIndex } from '../quiz/match'
+import { NAME_INDEX } from '../quiz/match'
 import { isQuizMode, pendingIn, sectionOf, type Mode, type QuizAction, type QuizState } from '../quiz/reducer'
 import { feedbackText } from '../quiz/feedbackText'
 import { Flag } from '../flags/Flag'
@@ -14,7 +13,6 @@ export interface SidePanelProps {
   focusId?: string | null
 }
 
-const NAME_INDEX = buildNameIndex(COUNTRIES, ALIASES)
 const BY_ID = Object.fromEntries(COUNTRIES.map((c) => [c.id, c]))
 const MODES: Record<'names' | 'flags', [Mode, string][]> = {
   names: [['type', 'Type'], ['click', 'Click'], ['explore', 'Explore']],

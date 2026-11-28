@@ -1,4 +1,5 @@
-import type { Country } from '../geo/countries'
+import { COUNTRIES, type Country } from '../geo/countries'
+import { ALIASES } from '../data/aliases'
 
 export function normalize(s: string): string {
   return s
@@ -37,3 +38,5 @@ export function buildNameIndex(cs: Country[], aliases: Record<string, string[]>)
 export function matchName(input: string, index: NameIndex): string | null {
   return index.get(normalize(input)) ?? null
 }
+
+export const NAME_INDEX = buildNameIndex(COUNTRIES, ALIASES)

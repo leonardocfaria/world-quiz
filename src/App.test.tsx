@@ -202,3 +202,64 @@ describe('Flags section', () => {
     expect(container.querySelectorAll('[data-tile]').length).toBe(countriesIn('Oceania').length)
   })
 })
+
+describe('Flag type', () => {
+  const targetId = () =>
+    (screen.getByAltText('Flag to identify') as HTMLImageElement).src.match(/([a-z]+)\.svg$/)![1].toUpperCase()
+  const nameOf = (id: string) => COUNTRIES.find((c) => c.id === id)!.name
+  const start = async () => {
+    const u = userEvent.setup()
+    const r = render(<App />)
+    await u.click(screen.getByRole('button', { name: 'Flags' }))
+    await u.click(screen.getByRole('button', { name: 'Type' }))
+    await u.click(tab('Europe'))
+    return { u, ...r }
+  }
+  const feedback = (c: HTMLElement) => c.querySelector('.feedback')!.textContent!
+
+  it('flag type: Enter on the right name counts and shows the next flag', async () => {
+    const { u, container } = await start()
+    const t = targetId()
+    expect(container.querySelector('.stage')!.textContent).not.toContain(nameOf(t))
+    await u.type(input(), `${nameOf(t)}{Enter}`)
+    expect(foundCount('Europe')).toBe(1)
+    expect(feedback(container)).toContain('✓')
+    expect(feedback(container)).toContain(nameOf(t))
+    expect(targetId()).not.toBe(t)
+  })
+
+  it('flag type: a wrong country costs a try, gibberish does not', async () => {
+    const { u, container } = await start()
+    const t = targetId()
+    const other = countriesIn('Europe').find((c) => c.id !== t)!.name
+    await u.type(input(), `${other}{Enter}`)
+    expect(screen.getByText('2 tries left')).toBeTruthy()
+    expect(feedback(container)).toContain(`Not ${other}`)
+    await u.type(input(), 'xyzzy{Enter}')
+    expect(screen.getByText('Not recognised')).toBeTruthy()
+    expect(screen.getByText('2 tries left')).toBeTruthy()
+  })
+
+  it("flag type: I don't know reveals and marks missed", async () => {
+    const { u, container } = await start()
+    const t = targetId()
+    await u.click(screen.getByRole('button', { name: "I don't know" }))
+    expect(feedback(container)).toContain(`It was ${nameOf(t)}`)
+    expect(screen.getByText(nameOf(t), { selector: 'li' }).hasAttribute('data-missed')).toBe(true)
+  })
+
+  it('flag type: done scope shows done message', async () => {
+    const { u } = await start()
+    await u.click(screen.getByRole('button', { name: 'Give up' }))
+    expect(screen.getByText('All flags in Europe done.')).toBeTruthy()
+    expect(screen.queryByRole('textbox')).toBeNull()
+    expect(screen.getByRole('button', { name: 'Retry missed' })).toBeTruthy()
+  })
+
+  it('flag type progress is separate from names type', async () => {
+    const { u } = await start()
+    await u.type(input(), `${nameOf(targetId())}{Enter}`)
+    await u.click(screen.getByRole('button', { name: 'Names' }))
+    expect(foundCount('Europe')).toBe(0)
+  })
+})
