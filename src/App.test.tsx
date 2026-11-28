@@ -220,12 +220,22 @@ describe('Flag type', () => {
   it('flag type: Enter on the right name counts and shows the next flag', async () => {
     const { u, container } = await start()
     const t = targetId()
-    expect(container.querySelector('.stage')!.textContent).not.toContain(nameOf(t))
+    const noLeak = () => {
+      const n = nameOf(targetId())
+      expect(container.textContent).not.toContain(n)
+      for (const el of container.querySelectorAll('[title], [aria-label]'))
+        expect(`${el.getAttribute('title')} ${el.getAttribute('aria-label')}`).not.toContain(n)
+      expect((screen.getByAltText('Flag to identify') as HTMLImageElement).alt).toBe('Flag to identify')
+    }
+    noLeak()
     await u.type(input(), `${nameOf(t)}{Enter}`)
     expect(foundCount('Europe')).toBe(1)
     expect(feedback(container)).toContain('✓')
     expect(feedback(container)).toContain(nameOf(t))
     expect(targetId()).not.toBe(t)
+    noLeak()
+    await u.click(screen.getByRole('button', { name: "I don't know" }))
+    noLeak()
   })
 
   it('flag type: a wrong country costs a try, gibberish does not', async () => {
